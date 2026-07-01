@@ -106,26 +106,43 @@ namespace Task_1
             //}
 
             // Task 6 - Temperature Converter 
-            Console.WriteLine("enter a temperature in Celsius");
-            int Celsius = int.Parse(Console.ReadLine());
+            //Console.WriteLine("enter a temperature in Celsius");
+            //int Celsius = int.Parse(Console.ReadLine());
 
-            int Fahrenheit = (Celsius * 9 / 5) + 32;
-            Console.WriteLine("Fahrenheit: " + Fahrenheit);
+            //int Fahrenheit = (Celsius * 9 / 5) + 32;
+            //Console.WriteLine("Fahrenheit: " + Fahrenheit);
 
-            if (Fahrenheit > 10)
+            //if (Fahrenheit > 10)
+            //{
+            //    Console.WriteLine("Cold");
+            //}
+            //else if (Fahrenheit >= 10 && Fahrenheit <= 30)
+            //{
+            //    Console.WriteLine("Mild");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Hot");
+            //}
+
+            // Task 7 - Movie Ticket Pricing 
+
+            Console.WriteLine("Enter your age: ");
+            int Age = int.Parse(Console.ReadLine());
+
+            if (Age >= 0 && Age <= 12)
             {
-                Console.WriteLine("Cold");
+                Console.WriteLine("Children: 2000 OMR");
             }
-            else if (Fahrenheit >= 10 && Fahrenheit <= 30)
+            else if (Age >= 13 && Age <= 59)
             {
-                Console.WriteLine("Mild");
+                Console.WriteLine("Adults: 5000 OMR");
             }
             else
             {
-                Console.WriteLine("Hot");
+                Console.WriteLine("Senior: 3000 OMR");
+
             }
-
-
         }
     }
 }
