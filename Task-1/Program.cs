@@ -16,17 +16,32 @@
             Console.WriteLine(student);
 
             // Task 2
-            Console.WriteLine("Enter the length");
-            float length = float.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the length");
+            //float length = float.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter the width");
-            float width = float.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the width");
+            //float width = float.Parse(Console.ReadLine());
 
-            float Area = length * width;
-            float Perimeter = 2 * (length + width);
+            //float Area = length * width;
+            //float Perimeter = 2 * (length + width);
 
-            Console.WriteLine("Area: " + Area);
-            Console.WriteLine("Perimeter: " + Perimeter);
+            //Console.WriteLine("Area: " + Area);
+            //Console.WriteLine("Perimeter: " + Perimeter);
+
+            // Task 3
+            Console.WriteLine("Enter Number");
+            int number = int.Parse(Console.ReadLine());
+
+            int CheckNumber = number % 2;
+
+            if (CheckNumber == 0)
+            {
+                Console.WriteLine("Number is even");
+            }
+            else
+            {
+                Console.WriteLine("Number is odd");
+            }
         }
     }
 }
