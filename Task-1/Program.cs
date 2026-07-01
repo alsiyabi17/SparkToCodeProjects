@@ -6,7 +6,7 @@ namespace Task_1
     {
         static void Main(string[] args)
         {
-            // Task 1
+            // Task 1 - Personal Info Card
             //string Name = "Mohammed";
             //int Age = 23;
             //double hight = 175;
@@ -17,7 +17,7 @@ namespace Task_1
             //Console.WriteLine(hight);
             //Console.WriteLine(student);
 
-            // Task 2
+            // Task 2 - Rectangle Calculator
             //Console.WriteLine("Enter the length");
             //float length = float.Parse(Console.ReadLine());
 
@@ -30,7 +30,7 @@ namespace Task_1
             //Console.WriteLine("Area: " + Area);
             //Console.WriteLine("Perimeter: " + Perimeter);
 
-            // Task 3
+            // Task 3 - Even or Odd Checker
             //Console.WriteLine("Enter Number");
             //int number = int.Parse(Console.ReadLine());
 
@@ -45,7 +45,7 @@ namespace Task_1
             //    Console.WriteLine("Number is odd");
             //}
 
-            // Task 4
+            // Task 4 - Voting Eligibility
             //Console.WriteLine("Enter Age");
             //int Age = int.Parse(Console.ReadLine());
 
@@ -64,45 +64,65 @@ namespace Task_1
             //    Console.WriteLine("You are not eligible to vote");
             //}
 
-            // Task 5
-            Console.WriteLine("1.A");
-            Console.WriteLine("1.B");
-            Console.WriteLine("1.C");
-            Console.WriteLine("1.D");
-            Console.WriteLine("1.F");
+            // Task 5 - Grade Letter Lookup
+            //Console.WriteLine("1.A");
+            //Console.WriteLine("1.B");
+            //Console.WriteLine("1.C");
+            //Console.WriteLine("1.D");
+            //Console.WriteLine("1.F");
 
-            Console.WriteLine("Chosse a single character representing a grade: ('A', 'B', 'C', 'D', or 'F')");
-            int grade = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Chosse a single character representing a grade: ('A', 'B', 'C', 'D', or 'F')");
+            //int grade = int.Parse(Console.ReadLine());
 
-            switch (grade)
+            //switch (grade)
+            //{
+            //    case 1:
+            //        Console.WriteLine("Excellent");
+            //        break;
+
+
+            //    case 2:
+            //        Console.WriteLine("Very Good");
+            //        break;
+
+
+            //    case 3:
+            //        Console.WriteLine("Good");
+            //        break;
+
+
+            //    case 4:
+            //        Console.WriteLine("Pass");
+            //        break;
+
+
+            //    case 5:
+            //        Console.WriteLine("Fail");
+            //        break;
+
+            //    default:
+            //        Console.WriteLine("Invalid grade");
+            //        break;
+            //}
+
+            // Task 6 - Temperature Converter 
+            Console.WriteLine("enter a temperature in Celsius");
+            int Celsius = int.Parse(Console.ReadLine());
+
+            int Fahrenheit = (Celsius * 9 / 5) + 32;
+            Console.WriteLine("Fahrenheit: " + Fahrenheit);
+
+            if (Fahrenheit > 10)
             {
-                case 1:
-                    Console.WriteLine("Excellent");
-                    break;
-
-
-                case 2:
-                    Console.WriteLine("Very Good");
-                    break;
-
-
-                case 3:
-                    Console.WriteLine("Good");
-                    break;
-
-
-                case 4:
-                    Console.WriteLine("Pass");
-                    break;
-
-
-                case 5:
-                    Console.WriteLine("Fail");
-                    break;
-
-                default:
-                    Console.WriteLine("Invalid grade");
-                    break;
+                Console.WriteLine("Cold");
+            }
+            else if (Fahrenheit >= 10 && Fahrenheit <= 30)
+            {
+                Console.WriteLine("Mild");
+            }
+            else
+            {
+                Console.WriteLine("Hot");
             }
 
 
