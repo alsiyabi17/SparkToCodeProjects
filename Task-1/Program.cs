@@ -246,34 +246,109 @@ namespace Task_1
             //}
 
             // Task 11 - Loan Eligibility System
-            Console.WriteLine("Enter your age: ");
-            int Age = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter your monthly income: ");
-            int income = int.Parse(Console.ReadLine());
-            Console.WriteLine("Do you have existing loan (yes/no)");
-            string existingLoan = Console.ReadLine();
+            //Console.WriteLine("Enter your age: ");
+            //int Age = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter your monthly income: ");
+            //int income = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Do you have existing loan (yes/no)");
+            //string existingLoan = Console.ReadLine();
 
-            bool yes = existingLoan == "yes";
-            bool no = existingLoan == "no";
+            //bool yes = existingLoan == "yes";
+            //bool no = existingLoan == "no";
 
-            if (Age >= 21 && Age <= 60 && income >= 400 && no)
+            //if (Age >= 21 && Age <= 60 && income >= 400 && no)
+            //{
+            //    Console.WriteLine("You are eligible for a loan");
+            //}
+            //else
+            //{
+            //    if (Age < 21 || Age > 60)
+            //    {
+            //        Console.WriteLine("Age out of range");
+            //    }
+            //    if (income < 400)
+            //    {
+            //        Console.WriteLine("income too low");
+            //    }
+            //    if (yes)
+            //    {
+            //        Console.WriteLine("has an existing loan");
+            //    }
+            //}
+
+            // Task 12 - Shipping Cost Calculator
+            Console.WriteLine("Enter the destination country: ");
+            Console.WriteLine("1. local");
+            Console.WriteLine("2. national");
+            Console.WriteLine("3. international");
+
+            int country = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the weight of the package in kg: ");
+            int weight = int.Parse(Console.ReadLine());
+
+            double baseCost = 0;
+            double extraCharge = 0;
+
+            switch (country)
             {
-                Console.WriteLine("You are eligible for a loan");
+                case 1:
+                    baseCost = 1.000;
+                    if (weight > 10)
+                    {
+                        extraCharge = 5.000;
+                    }
+                    else if (weight > 5)
+                    {
+                        extraCharge = 2.000;
+                    }
+                    else
+                    {
+                        extraCharge = 0;
+                    }
+                    break;
+                case 2:
+                    baseCost = 3.000;
+
+                    if (weight > 10)
+                    {
+                        extraCharge = 5.000;
+                    }
+                    else if (weight > 5)
+                    {
+                        extraCharge = 2.000;
+                    }
+                    else
+                    {
+                        extraCharge = 0;
+                    }
+                    break;
+                case 3:
+                    baseCost = 7.000;
+                    if (weight > 10)
+                    {
+                        extraCharge = 5.000;
+                    }
+                    else if (weight > 5)
+                    {
+                        extraCharge = 2.000;
+                    }
+                    else
+                    {
+                        extraCharge = 0;
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Invalid region");
+                    break;
             }
-            else
+            if (country == 1 || country == 2 || country == 3)
             {
-                if (Age < 21 || Age > 60)
-                {
-                    Console.WriteLine("Age out of range");
-                }
-                if (income < 400)
-                {
-                    Console.WriteLine("income too low");
-                }
-                if (yes)
-                {
-                    Console.WriteLine("has an existing loan");
-                }
+                double total = baseCost + extraCharge;
+
+                Console.WriteLine("Base cost: " + baseCost + " OMR");
+                Console.WriteLine("Extra charge: " + extraCharge + " OMR");
+                Console.WriteLine("Total shipping cost: " + total + " OMR");
             }
 
         }
