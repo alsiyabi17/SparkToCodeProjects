@@ -277,78 +277,115 @@ namespace Task_1
             //}
 
             // Task 12 - Shipping Cost Calculator
-            Console.WriteLine("Enter the destination country: ");
-            Console.WriteLine("1. local");
-            Console.WriteLine("2. national");
-            Console.WriteLine("3. international");
+            //Console.WriteLine("Enter the destination country: ");
+            //Console.WriteLine("1. local");
+            //Console.WriteLine("2. national");
+            //Console.WriteLine("3. international");
 
-            int country = int.Parse(Console.ReadLine());
+            //int country = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter the weight of the package in kg: ");
-            int weight = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the weight of the package in kg: ");
+            //int weight = int.Parse(Console.ReadLine());
 
-            double baseCost = 0;
-            double extraCharge = 0;
+            //double baseCost = 0;
+            //double extraCharge = 0;
 
-            switch (country)
+            //switch (country)
+            //{
+            //    case 1:
+            //        baseCost = 1.000;
+            //        if (weight > 10)
+            //        {
+            //            extraCharge = 5.000;
+            //        }
+            //        else if (weight > 5)
+            //        {
+            //            extraCharge = 2.000;
+            //        }
+            //        else
+            //        {
+            //            extraCharge = 0;
+            //        }
+            //        break;
+            //    case 2:
+            //        baseCost = 3.000;
+
+            //        if (weight > 10)
+            //        {
+            //            extraCharge = 5.000;
+            //        }
+            //        else if (weight > 5)
+            //        {
+            //            extraCharge = 2.000;
+            //        }
+            //        else
+            //        {
+            //            extraCharge = 0;
+            //        }
+            //        break;
+            //    case 3:
+            //        baseCost = 7.000;
+            //        if (weight > 10)
+            //        {
+            //            extraCharge = 5.000;
+            //        }
+            //        else if (weight > 5)
+            //        {
+            //            extraCharge = 2.000;
+            //        }
+            //        else
+            //        {
+            //            extraCharge = 0;
+            //        }
+            //        break;
+            //    default:
+            //        Console.WriteLine("Invalid region");
+            //        break;
+            //}
+            //if (country == 1 || country == 2 || country == 3)
+            //{
+            //    double total = baseCost + extraCharge;
+
+            //    Console.WriteLine("Base cost: " + baseCost + " OMR");
+            //    Console.WriteLine("Extra charge: " + extraCharge + " OMR");
+            //    Console.WriteLine("Total shipping cost: " + total + " OMR");
+            //}
+
+            // Task 13 - Triangle Type Classifier
+            Console.WriteLine("Enter side 1: ");
+            int side1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter side 2: ");
+            int side2 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter side 3: ");
+            int side3 = int.Parse(Console.ReadLine());
+
+            if (side1 + side2 > side3 &&
+                side1 + side3 > side2 &&
+                side2 + side3 > side1)
             {
-                case 1:
-                    baseCost = 1.000;
-                    if (weight > 10)
-                    {
-                        extraCharge = 5.000;
-                    }
-                    else if (weight > 5)
-                    {
-                        extraCharge = 2.000;
-                    }
-                    else
-                    {
-                        extraCharge = 0;
-                    }
-                    break;
-                case 2:
-                    baseCost = 3.000;
+                Console.WriteLine("Valid triangle");
 
-                    if (weight > 10)
+                if (side1 == side2 && side2 == side3)
+                {
+                    Console.WriteLine("Equilateral triangle");
+                }
+                else
+                {
+                    if (side1 == side2 || side1 == side3 || side2 == side3)
                     {
-                        extraCharge = 5.000;
-                    }
-                    else if (weight > 5)
-                    {
-                        extraCharge = 2.000;
-                    }
-                    else
-                    {
-                        extraCharge = 0;
-                    }
-                    break;
-                case 3:
-                    baseCost = 7.000;
-                    if (weight > 10)
-                    {
-                        extraCharge = 5.000;
-                    }
-                    else if (weight > 5)
-                    {
-                        extraCharge = 2.000;
+                        Console.WriteLine("Isosceles triangle");
                     }
                     else
                     {
-                        extraCharge = 0;
+                        Console.WriteLine("Scalene triangle");
                     }
-                    break;
-                default:
-                    Console.WriteLine("Invalid region");
-                    break;
+                }
             }
-            if (country == 1 || country == 2 || country == 3)
+            else
             {
-                double total = baseCost + extraCharge;
-
-                Console.WriteLine("Base cost: " + baseCost + " OMR");
-                Console.WriteLine("Extra charge: " + extraCharge + " OMR");
-                Console.WriteLine("Total shipping cost: " + total + " OMR");
+                Console.WriteLine("Invalid triangle");
             }
 
         }
