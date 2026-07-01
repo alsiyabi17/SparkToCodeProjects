@@ -127,22 +127,46 @@ namespace Task_1
 
             // Task 7 - Movie Ticket Pricing 
 
-            Console.WriteLine("Enter your age: ");
-            int Age = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter your age: ");
+            //int Age = int.Parse(Console.ReadLine());
 
-            if (Age >= 0 && Age <= 12)
+            //if (Age >= 0 && Age <= 12)
+            //{
+            //    Console.WriteLine("Children: 2000 OMR");
+            //}
+            //else if (Age >= 13 && Age <= 59)
+            //{
+            //    Console.WriteLine("Adults: 5000 OMR");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Senior: 3000 OMR");
+
+            //}
+
+            // Task 8 - Restaurant Bill with Membership Discount
+            Console.WriteLine("Are you a loyalty member (yes/no)?");
+            string LM = (Console.ReadLine());
+
+            bool yes = LM == "yes";
+            bool no = LM == "no";
+
+            Console.WriteLine("Enter the total bill amount: ");
+            int billAmount = int.Parse(Console.ReadLine());
+                
+            int discount = billAmount * 15 / 100;
+
+            if (billAmount > 20 && yes)
             {
-                Console.WriteLine("Children: 2000 OMR");
-            }
-            else if (Age >= 13 && Age <= 59)
-            {
-                Console.WriteLine("Adults: 5000 OMR");
+                Console.WriteLine("orginal bill = " + billAmount);
+                Console.WriteLine("Discount 15% = " + discount);
+                Console.WriteLine("Total bill after discount = " + (billAmount - discount));
             }
             else
             {
-                Console.WriteLine("Senior: 3000 OMR");
-
+                Console.WriteLine("orginal bill = " + billAmount);
             }
+
         }
     }
 }
