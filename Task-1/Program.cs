@@ -1,4 +1,6 @@
-﻿namespace Task_1
+﻿using Microsoft.VisualBasic.FileIO;
+
+namespace Task_1
 {
     internal class Program
     {
@@ -61,6 +63,47 @@
             //{
             //    Console.WriteLine("You are not eligible to vote");
             //}
+
+            // Task 5
+            Console.WriteLine("1.A");
+            Console.WriteLine("1.B");
+            Console.WriteLine("1.C");
+            Console.WriteLine("1.D");
+            Console.WriteLine("1.F");
+
+            Console.WriteLine("Chosse a single character representing a grade: ('A', 'B', 'C', 'D', or 'F')");
+            int grade = int.Parse(Console.ReadLine());
+
+            switch (grade)
+            {
+                case 1:
+                    Console.WriteLine("Excellent");
+                    break;
+
+
+                case 2:
+                    Console.WriteLine("Very Good");
+                    break;
+
+
+                case 3:
+                    Console.WriteLine("Good");
+                    break;
+
+
+                case 4:
+                    Console.WriteLine("Pass");
+                    break;
+
+
+                case 5:
+                    Console.WriteLine("Fail");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid grade");
+                    break;
+            }
 
 
         }
