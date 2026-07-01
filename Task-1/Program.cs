@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.FileIO;
+using System.Xml.Linq;
 
 namespace Task_1
 {
@@ -145,26 +146,58 @@ namespace Task_1
             //}
 
             // Task 8 - Restaurant Bill with Membership Discount
-            Console.WriteLine("Are you a loyalty member (yes/no)?");
-            string LM = (Console.ReadLine());
+            //Console.WriteLine("Are you a loyalty member (yes/no)?");
+            //string LM = (Console.ReadLine());
 
-            bool yes = LM == "yes";
-            bool no = LM == "no";
+            //bool yes = LM == "yes";
+            //bool no = LM == "no";
 
-            Console.WriteLine("Enter the total bill amount: ");
-            int billAmount = int.Parse(Console.ReadLine());
-                
-            int discount = billAmount * 15 / 100;
+            //Console.WriteLine("Enter the total bill amount: ");
+            //int billAmount = int.Parse(Console.ReadLine());
 
-            if (billAmount > 20 && yes)
-            {
-                Console.WriteLine("orginal bill = " + billAmount);
-                Console.WriteLine("Discount 15% = " + discount);
-                Console.WriteLine("Total bill after discount = " + (billAmount - discount));
-            }
-            else
-            {
-                Console.WriteLine("orginal bill = " + billAmount);
+            //int discount = billAmount * 15 / 100;
+
+            //if (billAmount > 20 && yes)
+            //{
+            //    Console.WriteLine("orginal bill = " + billAmount);
+            //    Console.WriteLine("Discount 15% = " + discount);
+            //    Console.WriteLine("Total bill after discount = " + (billAmount - discount));
+            //}
+            //else
+            //{
+            //    Console.WriteLine("orginal bill = " + billAmount);
+            //}
+
+            // Task 9 - Day Name Finder
+            Console.WriteLine("Enter a number from 1 to 7 representing a day of the week");
+            int dayNumber = int.Parse(Console.ReadLine());
+
+            switch (dayNumber)
+                {
+                case 1:
+                    Console.WriteLine("Sunday");
+                    break;
+                case 2:
+                    Console.WriteLine("Monday");
+                    break;
+                case 3:
+                    Console.WriteLine("Tuesday");
+                    break;
+                case 4:
+                    Console.WriteLine("Wednesday");
+                    break;
+                case 5:
+                    Console.WriteLine("Thursday");
+                    break;
+                case 6:
+                    Console.WriteLine("Friday");
+                    break;
+                case 7:
+                    Console.WriteLine("Saturday");
+                    break;
+                default: 
+                    Console.WriteLine("Invalid day number");
+                    break;
             }
 
         }
