@@ -202,50 +202,82 @@ namespace Task_1
             //}
 
             // Task 10 - Mini Calculator
-            Console.WriteLine("Enter first number: ");
-            int num1 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter first number: ");
+            //int num1 = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter second number: ");
-            int num2 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter second number: ");
+            //int num2 = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Choose an operation (+, -, *, /,%): ");
-            int operation = Console.ReadLine()[0];
+            //Console.WriteLine("Choose an operation (+, -, *, /,%): ");
+            //int operation = Console.ReadLine()[0];
 
-            if (num2 == 0)
+            //if (num2 == 0)
+            //{
+            //    Console.WriteLine("Cannot divide by Zero");
+            //}
+            //else if (operation != '+' && operation != '-' && operation != '*' && operation != '/' && operation != '%')
+            //{
+            //    Console.WriteLine("Invalid operation");
+            //}
+            //else
+            //{
+            //    switch (operation)
+            //    {
+            //        case '+':
+            //            Console.WriteLine("Result: " + (num1 + num2));
+            //            break;
+
+            //        case '-':
+            //            Console.WriteLine("Result: " + (num1 - num2));
+            //            break;
+
+            //        case '*':
+            //            Console.WriteLine("Result: " + (num1 * num2));
+            //            break;
+
+            //        case '/':
+            //            Console.WriteLine("Result: " + (num1 / num2));
+            //            break;
+
+            //        case '%':
+            //            Console.WriteLine("Result: " + (num1 % num2));
+            //            break;
+            //    }
+            //}
+
+            // Task 11 - Loan Eligibility System
+            Console.WriteLine("Enter your age: ");
+            int Age = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter your monthly income: ");
+            int income = int.Parse(Console.ReadLine());
+            Console.WriteLine("Do you have existing loan (yes/no)");
+            string existingLoan = Console.ReadLine();
+
+            bool yes = existingLoan == "yes";
+            bool no = existingLoan == "no";
+
+            if (Age >= 21 && Age <= 60 && income >= 400 && no)
             {
-                Console.WriteLine("Cannot divide by Zero");
-            }
-            else if (operation != '+' && operation != '-' && operation != '*' && operation != '/' && operation != '%')
-            {
-                Console.WriteLine("Invalid operation");
+                Console.WriteLine("You are eligible for a loan");
             }
             else
             {
-                switch (operation)
+                if (Age < 21 || Age > 60)
                 {
-                    case '+':
-                        Console.WriteLine("Result: " + (num1 + num2));
-                        break;
-
-                    case '-':
-                        Console.WriteLine("Result: " + (num1 - num2));
-                        break;
-
-                    case '*':
-                        Console.WriteLine("Result: " + (num1 * num2));
-                        break;
-
-                    case '/':
-                        Console.WriteLine("Result: " + (num1 / num2));
-                        break;
-
-                    case '%':
-                        Console.WriteLine("Result: " + (num1 % num2));
-                        break;
+                    Console.WriteLine("Age out of range");
+                }
+                if (income < 400)
+                {
+                    Console.WriteLine("income too low");
+                }
+                if (yes)
+                {
+                    Console.WriteLine("has an existing loan");
                 }
             }
+
         }
-        
+
     }
 }
             
