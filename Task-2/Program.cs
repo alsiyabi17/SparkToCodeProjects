@@ -41,18 +41,44 @@
             //////////////////////////////////////////////////////////////////////////////////////////////////
 
             // Task 4 - Password Retry
-            string correctPassword = "Spark2026";
+            //string correctPassword = "Spark2026";
 
-            Console.WriteLine("Enter password:");
-            string password = Console.ReadLine();
+            //Console.WriteLine("Enter password:");
+            //string password = Console.ReadLine();
 
-            while (password != correctPassword)
+            //while (password != correctPassword)
+            //{
+            //    Console.WriteLine("Incorrect password, try again");
+            //    password = Console.ReadLine();
+            //}
+
+            //Console.WriteLine("Access Granted");
+
+            // Task 5 - Number Guessing Game
+            int secretNumber = 42;
+            int guess;
+            int attempts = 0;
+
+            do
             {
-                Console.WriteLine("Incorrect password, try again");
-                password = Console.ReadLine();
-            }
+                Console.WriteLine("Guess the secret number: ");
+                guess = int.Parse(Console.ReadLine());
+                attempts++;
 
-            Console.WriteLine("Access Granted");
+                if (guess > secretNumber)
+                {
+                    Console.WriteLine("Too high");
+                }
+                else if (guess < secretNumber)
+                {
+                    Console.WriteLine("Too low");
+                }
+                else
+                {
+                    Console.WriteLine("Correct!");
+                }
+            } while (guess != secretNumber);
+            Console.WriteLine("You took " + attempts + " attempts.");
 
         }
     }
