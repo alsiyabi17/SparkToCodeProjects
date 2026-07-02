@@ -31,14 +31,28 @@
             //////////////////////////////////////////////////////////////////////////////////////////////////
 
             // Task 3 - Multiplication Table
-            Console.WriteLine("Enter a number:");
-            int number = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter a number:");
+            //int number = int.Parse(Console.ReadLine());
 
-            for (int i = 1; i <= 10; i++)
+            //for (int i = 1; i <= 10; i++)
+            //{
+            //    Console.WriteLine(number + " x " + i + " = " + (number * i));
+            //}
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+
+            // Task 4 - Password Retry
+            string correctPassword = "Spark2026";
+
+            Console.WriteLine("Enter password:");
+            string password = Console.ReadLine();
+
+            while (password != correctPassword)
             {
-                Console.WriteLine(number + " x " + i + " = " + (number * i));
+                Console.WriteLine("Incorrect password, try again");
+                password = Console.ReadLine();
             }
 
+            Console.WriteLine("Access Granted");
 
         }
     }
