@@ -352,41 +352,91 @@ namespace Task_1
             //}
 
             // Task 13 - Triangle Type Classifier
-            Console.WriteLine("Enter side 1: ");
-            int side1 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter side 1: ");
+            //int side1 = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter side 2: ");
-            int side2 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter side 2: ");
+            //int side2 = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter side 3: ");
-            int side3 = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter side 3: ");
+            //int side3 = int.Parse(Console.ReadLine());
 
-            if (side1 + side2 > side3 &&
-                side1 + side3 > side2 &&
-                side2 + side3 > side1)
+            //if (side1 + side2 > side3 &&
+            //    side1 + side3 > side2 &&
+            //    side2 + side3 > side1)
+            //{
+            //    Console.WriteLine("Valid triangle");
+
+            //    if (side1 == side2 && side2 == side3)
+            //    {
+            //        Console.WriteLine("Equilateral");
+            //    }
+            //    else
+            //    {
+            //        if (side1 == side2 || side1 == side3 || side2 == side3)
+            //        {
+            //            Console.WriteLine("Isosceles");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Scalene");
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Invalid triangle");
+            //}
+
+            // Task 14 - Online Store Checkout
+            Console.WriteLine("Enter product code:");
+            Console.WriteLine("1. Headphones");
+            Console.WriteLine("2. Keyboard");
+            Console.WriteLine("3. Mouse");
+
+            int product = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter quantity:");
+            int quantity = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Do you have a discount coupon? (yes/no)");
+            string coupon = Console.ReadLine();
+
+            double ProductPrice = 0;
+
+            switch (product)
             {
-                Console.WriteLine("Valid triangle");
+                case 1:
+                    ProductPrice = 8.500;
+                    break;
 
-                if (side1 == side2 && side2 == side3)
-                {
-                    Console.WriteLine("Equilateral");
-                }
-                else
-                {
-                    if (side1 == side2 || side1 == side3 || side2 == side3)
-                    {
-                        Console.WriteLine("Isosceles");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Scalene");
-                    }
-                }
+                case 2:
+                    ProductPrice = 12.000;
+                    break;
+
+                case 3:
+                    ProductPrice = 5.000;
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid product code");
+                    return;
             }
-            else
+            double subtotal = ProductPrice * quantity;
+            double discount = 0;
+            if (coupon == "yes" && subtotal > 20)
             {
-                Console.WriteLine("Invalid triangle");
+                discount = subtotal * 0.10;
             }
+
+            double amountAfterDiscount = subtotal - discount;
+            double tax = amountAfterDiscount * 0.05;
+            double total = amountAfterDiscount + tax;
+
+            Console.WriteLine("Subtotal: " + subtotal + " OMR");
+            Console.WriteLine("Discount: " + discount + " OMR");
+            Console.WriteLine("Tax: " + tax + " OMR");
+            Console.WriteLine("Final Total: " + total + " OMR");
 
         }
 
