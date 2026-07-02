@@ -107,42 +107,59 @@
             //////////////////////////////////////////////////////////////////////////////////////////////
 
             // Task 7 - Repeating Menu with Exit Option
-            bool n = true;
+            //bool n = true;
 
-            while (n)
+            //while (n)
+            //{
+            //    try
+            //    {
+            //        Console.WriteLine("Welcome To Menu ");
+            //        Console.WriteLine("1) Say Hello");
+            //        Console.WriteLine("2) Show Greeting");
+            //        Console.WriteLine("3) Exit");
+            //        Console.WriteLine("Enter your choice:");
+
+            //        int choice = int.Parse(Console.ReadLine());
+
+            //        switch (choice)
+            //        {
+            //            case 1:
+            //                Console.WriteLine("Hello!");
+            //                break;
+            //            case 2:
+            //                Console.WriteLine("Hope you're having a great time.");
+            //                break;
+            //            case 3:
+            //                Console.WriteLine("Exiting...");
+            //                n = false;
+            //                break;
+            //            default:
+            //                Console.WriteLine("Invalid choice. Please select 1, 2, or 3");
+            //                break;
+            //        }
+            //    }
+            //    catch (FormatException)
+            //    {
+            //        Console.WriteLine("Invalid input");
+            //    }
+            //}
+            //////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            // Task 8 - Sum of Even Numbers Only
+            Console.WriteLine("Enter a positive whole number:");
+            int n = int.Parse(Console.ReadLine());
+
+            int sum = 0;
+
+            for (int i = 1; i <= n; i++)
             {
-                try
+                if (i % 2 == 0)
                 {
-                    Console.WriteLine("Welcome To Menu ");
-                    Console.WriteLine("1) Say Hello");
-                    Console.WriteLine("2) Show Greeting");
-                    Console.WriteLine("3) Exit");
-                    Console.WriteLine("Enter your choice:");
-
-                    int choice = int.Parse(Console.ReadLine());
-
-                    switch (choice)
-                    {
-                        case 1:
-                            Console.WriteLine("Hello!");
-                            break;
-                        case 2:
-                            Console.WriteLine("Hope you're having a great time.");
-                            break;
-                        case 3:
-                            Console.WriteLine("Exiting...");
-                            n = false;
-                            break;
-                        default:
-                            Console.WriteLine("Invalid choice. Please select 1, 2, or 3");
-                            break;
-                    }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid input");
+                    sum = sum + i;
                 }
             }
+            Console.WriteLine("Sum of even numbers: " + sum);
         }
     }
 }
