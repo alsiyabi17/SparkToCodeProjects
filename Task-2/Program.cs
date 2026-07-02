@@ -85,24 +85,63 @@
 
             // Task 6 - Safe Division Calculator
 
-            try
-            {
-                Console.WriteLine("Enter first number: ");
-                int num1 = int.Parse(Console.ReadLine());
+            //try
+            //{
+            //    Console.WriteLine("Enter first number: ");
+            //    int num1 = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Enter second number: ");
-                int num2 = int.Parse(Console.ReadLine());
+            //    Console.WriteLine("Enter second number: ");
+            //    int num2 = int.Parse(Console.ReadLine());
 
-                int result = num1 / num2;
-                Console.WriteLine("Result: " + result);
-            }
-            catch (DivideByZeroException)
+            //    int result = num1 / num2;
+            //    Console.WriteLine("Result: " + result);
+            //}
+            //catch (DivideByZeroException)
+            //{
+            //    Console.WriteLine("Cannot divide by zero.");
+            //}
+            //catch (FormatException)
+            //{
+            //    Console.WriteLine("Invalid input.");
+            //}
+            //////////////////////////////////////////////////////////////////////////////////////////////
+
+            // Task 7 - Repeating Menu with Exit Option
+            bool n = true;
+
+            while (n)
             {
-                Console.WriteLine("Cannot divide by zero.");
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Invalid input.");
+                try
+                {
+                    Console.WriteLine("Welcome To Menu ");
+                    Console.WriteLine("1) Say Hello");
+                    Console.WriteLine("2) Show Greeting");
+                    Console.WriteLine("3) Exit");
+                    Console.WriteLine("Enter your choice:");
+
+                    int choice = int.Parse(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("Hello!");
+                            break;
+                        case 2:
+                            Console.WriteLine("Hope you're having a great time.");
+                            break;
+                        case 3:
+                            Console.WriteLine("Exiting...");
+                            n = false;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice. Please select 1, 2, or 3");
+                            break;
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input");
+                }
             }
         }
     }
