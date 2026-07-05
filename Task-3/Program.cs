@@ -25,16 +25,25 @@
             //Console.WriteLine("The square root of " + num + " is: " + squareRoot);
             // -----------------------------------------------------------------------------
             // Task 3 - Name Formatter
-            Console.WriteLine("Enter your full name: ");
-            string fullName = Console.ReadLine();
+            //Console.WriteLine("Enter your full name: ");
+            //string fullName = Console.ReadLine();
 
-            string nameUpper = fullName.ToUpper();
-            string nameLower = fullName.ToLower();
-            string nameLength = fullName.Length.ToString();
+            //string nameUpper = fullName.ToUpper();
+            //string nameLower = fullName.ToLower();
+            //string nameLength = fullName.Length.ToString();
 
-            Console.WriteLine("Your name in uppercase: " + nameUpper);
-            Console.WriteLine("Your name in lowercase: " + nameLower);
-            Console.WriteLine("The length of your name is: " + nameLength);
+            //Console.WriteLine("Your name in uppercase: " + nameUpper);
+            //Console.WriteLine("Your name in lowercase: " + nameLower);
+            //Console.WriteLine("The length of your name is: " + nameLength);
+            // -----------------------------------------------------------------------------
+            // Task 4 - Subscription End Date
+            Console.WriteLine("Enter the day's of free trial: ");
+            int freeTrialDays = Convert.ToInt32(Console.ReadLine());
+
+            DateTime startDate = DateTime.Today;
+            DateTime endDate = startDate.AddDays(freeTrialDays);
+
+            Console.WriteLine("Trial End Date: " + endDate.ToString("yyyy-MM-dd"));
 
         }
     }
