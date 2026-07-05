@@ -104,33 +104,44 @@
             //}
             // -----------------------------------------------------------------------------
             // Task 8 - Membership Expiry Checker
-            try
-            {
-                Console.Write("Enter membership start date (yyyy-MM-dd): ");
-                string inputDate = Console.ReadLine();
+            //try
+            //{
+            //    Console.Write("Enter membership start date (yyyy-MM-dd): ");
+            //    string inputDate = Console.ReadLine();
 
-                Console.Write("Enter number of valid membership days: ");
-                int days = int.Parse(Console.ReadLine());
+            //    Console.Write("Enter number of valid membership days: ");
+            //    int days = int.Parse(Console.ReadLine());
 
-                DateTime startDate = DateTime.Parse(inputDate);
+            //    DateTime startDate = DateTime.Parse(inputDate);
 
-                DateTime expiryDate = startDate.AddDays(days);
+            //    DateTime expiryDate = startDate.AddDays(days);
 
-                if (expiryDate >= DateTime.Today)
-                {
-                    Console.WriteLine("Active");
-                }
-                else
-                {
-                    Console.WriteLine("Expired");
-                }
+            //    if (expiryDate >= DateTime.Today)
+            //    {
+            //        Console.WriteLine("Active");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("Expired");
+            //    }
+            //    Console.WriteLine("Expiry Date: " + expiryDate.ToString("yyyy-MM-dd"));
+            //}
+            //catch (FormatException)
+            //{
+            //    Console.WriteLine("Invalid input...");
+            //}
+            // -----------------------------------------------------------------------------
+            // Task 9 - Round Up / Round Down Explorer
+            Console.Write("Enter a decimal number: ");
+            double number = double.Parse(Console.ReadLine());
 
-                Console.WriteLine("Expiry Date: " + expiryDate.ToString("yyyy-MM-dd"));
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Invalid input...");
-            }
+            double rounded = Math.Round(number);
+            double roundedUp = Math.Ceiling(number);
+            double roundedDown = Math.Floor(number);
+
+            Console.WriteLine("Nearest Whole Number: " + rounded);
+            Console.WriteLine("Always Rounded Up: " + roundedUp);
+            Console.WriteLine("Always Rounded Down: " + roundedDown);
         }
     }
 }
