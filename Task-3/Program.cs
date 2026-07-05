@@ -62,26 +62,45 @@
             //}
             // -----------------------------------------------------------------------------
             // Task 6 - Password Strength Checker
-            Console.Write("Enter your password: ");
-            string password = Console.ReadLine();
+            //Console.Write("Enter your password: ");
+            //string password = Console.ReadLine();
 
-            if (password.Length >= 8 && !password.ToLower().Contains("password"))
+            //if (password.Length >= 8 && !password.ToLower().Contains("password"))
+            //{
+            //    Console.WriteLine("Strong");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Weak:");
+
+            //    if (password.Length < 8)
+            //    {
+            //        Console.WriteLine("It must be at least 8 characters");
+            //    }
+
+            //    if (password.ToLower().Contains("password"))
+            //    {
+            //        Console.WriteLine("It must not contain the word \"password\"");
+            //    }
+            //}
+            // -----------------------------------------------------------------------------
+            // Task 7 - Clean Name Comparator
+            Console.Write("Enter first name: ");
+            string name1 = Console.ReadLine();
+
+            Console.Write("Enter second name: ");
+            string name2 = Console.ReadLine();
+
+            name1 = name1.Trim().ToLower();
+            name2 = name2.Trim().ToLower();
+
+            if (name1 == name2)
             {
-                Console.WriteLine("Strong");
+                Console.WriteLine("Match");
             }
             else
             {
-                Console.WriteLine("Weak:");
-
-                if (password.Length < 8)
-                {
-                    Console.WriteLine("It must be at least 8 characters");
-                }
-
-                if (password.ToLower().Contains("password"))
-                {
-                    Console.WriteLine("It must not contain the word \"password\"");
-                }
+                Console.WriteLine("No Match");
             }
         }
     }
