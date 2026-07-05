@@ -3,4 +3,5 @@
   <Project Path="CsharpPart2/CsharpPart2.csproj" Id="2a4504aa-a230-4245-9ff7-c302fe772ed3" />
   <Project Path="Task-1/Task-1.csproj" Id="5931eb70-fee4-47bd-88d5-56eb55a8dbb6" />
   <Project Path="Task-2/Task-2.csproj" Id="9b736dd1-edbd-4885-a537-18b9732b5b73" />
+  <Project Path="Task-3/Task-3.csproj" Id="bfd97701-cebb-4446-ba90-dd2c59c08a2e" />
 </Solution>
