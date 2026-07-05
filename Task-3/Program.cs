@@ -85,22 +85,51 @@
             //}
             // -----------------------------------------------------------------------------
             // Task 7 - Clean Name Comparator
-            Console.Write("Enter first name: ");
-            string name1 = Console.ReadLine();
+            //Console.Write("Enter first name: ");
+            //string name1 = Console.ReadLine();
 
-            Console.Write("Enter second name: ");
-            string name2 = Console.ReadLine();
+            //Console.Write("Enter second name: ");
+            //string name2 = Console.ReadLine();
 
-            name1 = name1.Trim().ToLower();
-            name2 = name2.Trim().ToLower();
+            //name1 = name1.Trim().ToLower();
+            //name2 = name2.Trim().ToLower();
 
-            if (name1 == name2)
+            //if (name1 == name2)
+            //{
+            //    Console.WriteLine("Match");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No Match");
+            //}
+            // -----------------------------------------------------------------------------
+            // Task 8 - Membership Expiry Checker
+            try
             {
-                Console.WriteLine("Match");
+                Console.Write("Enter membership start date (yyyy-MM-dd): ");
+                string inputDate = Console.ReadLine();
+
+                Console.Write("Enter number of valid membership days: ");
+                int days = int.Parse(Console.ReadLine());
+
+                DateTime startDate = DateTime.Parse(inputDate);
+
+                DateTime expiryDate = startDate.AddDays(days);
+
+                if (expiryDate >= DateTime.Today)
+                {
+                    Console.WriteLine("Active");
+                }
+                else
+                {
+                    Console.WriteLine("Expired");
+                }
+
+                Console.WriteLine("Expiry Date: " + expiryDate.ToString("yyyy-MM-dd"));
             }
-            else
+            catch (FormatException)
             {
-                Console.WriteLine("No Match");
+                Console.WriteLine("Invalid input...");
             }
         }
     }
