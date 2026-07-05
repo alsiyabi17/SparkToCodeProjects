@@ -46,19 +46,42 @@
             //Console.WriteLine("Trial End Date: " + endDate.ToString("yyyy-MM-dd"));
             // -----------------------------------------------------------------------------
             // Task 5 - Grade Rounding System
-            Console.WriteLine("enter your raw exam score as a decimal number: ");
-            float rawScore = Convert.ToSingle(Console.ReadLine());
+            //Console.WriteLine("enter your raw exam score as a decimal number: ");
+            //float rawScore = Convert.ToSingle(Console.ReadLine());
 
-            float roundedScore = (float)Math.Round(rawScore, 1);
-            if (roundedScore >= 60)
+            //float roundedScore = (float)Math.Round(rawScore, 1);
+            //if (roundedScore >= 60)
+            //{
+            //    Console.WriteLine("Your rounded score is: " + roundedScore + " You passed the exam.");
+
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Your rounded score is: " + roundedScore + " You failed the exam.");
+
+            //}
+            // -----------------------------------------------------------------------------
+            // Task 6 - Password Strength Checker
+            Console.Write("Enter your password: ");
+            string password = Console.ReadLine();
+
+            if (password.Length >= 8 && !password.ToLower().Contains("password"))
             {
-                Console.WriteLine("Your rounded score is: " + roundedScore + " You passed the exam.");
-
+                Console.WriteLine("Strong");
             }
             else
             {
-                Console.WriteLine("Your rounded score is: " + roundedScore + " You failed the exam.");
+                Console.WriteLine("Weak:");
 
+                if (password.Length < 8)
+                {
+                    Console.WriteLine("It must be at least 8 characters");
+                }
+
+                if (password.ToLower().Contains("password"))
+                {
+                    Console.WriteLine("It must not contain the word \"password\"");
+                }
             }
         }
     }
