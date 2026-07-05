@@ -144,24 +144,62 @@
             //Console.WriteLine("Always Rounded Down: " + roundedDown);
             // -----------------------------------------------------------------------------
             // Task 10 - Word Position Finder
-            Console.Write("Enter a sentence: ");
-            string sentence = Console.ReadLine();
+            //Console.Write("Enter a sentence: ");
+            //string sentence = Console.ReadLine();
 
-            Console.Write("Enter a word to search for: ");
-            string word = Console.ReadLine();
+            //Console.Write("Enter a word to search for: ");
+            //string word = Console.ReadLine();
 
-            int firstIndex = sentence.IndexOf(word);
-            int lastIndex = sentence.LastIndexOf(word);
+            //int firstIndex = sentence.IndexOf(word);
+            //int lastIndex = sentence.LastIndexOf(word);
 
-            if (firstIndex == -1)
+            //if (firstIndex == -1)
+            //{
+            //    Console.WriteLine("Word not found.");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("First occurrence: " + firstIndex);
+            //    Console.WriteLine("Last occurrence: " + lastIndex);
+            //}
+            // -----------------------------------------------------------------------------
+            // Task 11 - One-Time Password (OTP) Generator
+            Random random = new Random();
+            int otp = random.Next(1000, 10000);
+
+            Console.WriteLine("Your OTP is: " + otp);
+            int attempts = 3;
+            while (attempts > 0)
             {
-                Console.WriteLine("Word not found.");
+                try
+                {
+                    Console.Write("Enter the OTP: ");
+                    int userOtp = int.Parse(Console.ReadLine());
+                    if (userOtp == otp)
+                    {
+                        Console.WriteLine("Verified");
+                        return;
+                    }
+                    else
+                    {
+                        attempts--;
+                        if (attempts > 0)
+                        {
+                            Console.WriteLine("Incorrect OTP. Attempts left: " + attempts);
+                        }
+                    }
+                }
+                catch (FormatException)
+                {
+                    attempts--;
+                    if (attempts > 0)
+                    {
+                        Console.WriteLine("Invalid input. Please enter numbers only.");
+                        Console.WriteLine("Attempts left: " + attempts);
+                    }
+                }
             }
-            else
-            {
-                Console.WriteLine("First occurrence: " + firstIndex);
-                Console.WriteLine("Last occurrence: " + lastIndex);
-            }
+            Console.WriteLine("Verification Failed");
         }
     }
 }
