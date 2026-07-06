@@ -2,17 +2,34 @@
 {
     internal class Program
     {
-        static void PrintWelcome(string name)
+        // For task 1
+        //static void PrintWelcome(string name)
+        //{
+        //    Console.WriteLine("Welcome, " + name + "!");
+        //    Console.WriteLine("We're glad to have you here.");
+        //}
+
+        // For task 2
+        static int Square(int number)
         {
-            Console.WriteLine("Welcome, " + name + "!");
-            Console.WriteLine("We're glad to have you here.");
+            return number * number;
         }
         static void Main(string[] args)
         {
-            Console.Write("Enter your name: ");
-            string name = Console.ReadLine();
+            // Task 1 - Personalized Welcome Function
+            //Console.Write("Enter your name: ");
+            //string name = Console.ReadLine();
 
-            PrintWelcome(name);
+            //PrintWelcome(name);
+            // ---------------------------------------
+            // Task 2 - Square Number Function 
+            Console.Write("Enter a number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            int result = Square(number);
+
+            Console.WriteLine("The square is: " + result);
+
         }
     }
 }
