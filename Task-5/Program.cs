@@ -16,9 +16,18 @@
         //}
         // -----------------------------------------------------
         // for task 3
-        static double CelsiusToFahrenheit(double celsius)
+        //static double CelsiusToFahrenheit(double celsius)
+        //{
+        //    return (celsius * 9 / 5) + 32;
+        //}
+        // -----------------------------------------------------
+        // For task 4
+        static void DisplayMenu()
         {
-            return (celsius * 9 / 5) + 32;
+            Console.WriteLine("MENU ");
+            Console.WriteLine("1. Start");
+            Console.WriteLine("2. Help");
+            Console.WriteLine("3. Exit");
         }
         static void Main(string[] args)
         {
@@ -37,11 +46,14 @@
             //Console.WriteLine("The square is: " + result);
             // ---------------------------------------
             // Task 3 - Celsius to Fahrenheit Function
-            Console.Write("Enter the temperature in Celsius: ");
-            double celsius = double.Parse(Console.ReadLine());
+            //Console.Write("Enter the temperature in Celsius: ");
+            //double celsius = double.Parse(Console.ReadLine());
 
-            double fahrenheit = CelsiusToFahrenheit(celsius);
-            Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit);
+            //double fahrenheit = CelsiusToFahrenheit(celsius);
+            //Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit);
+            // ---------------------------------------
+            // Task 4 - Fixed Menu Display Function
+            DisplayMenu();
 
         }
     }
