@@ -81,19 +81,29 @@
         //}
         // -----------------------------------------------------
         // for task 9
-        static int Multiply(int a, int b)
+        //static int Multiply(int a, int b)
+        //{
+        //    return a * b;
+        //}
+        //static double Multiply(double a, double b)
+        //{
+        //    return a * b;
+        //}
+        //static int Multiply(int a, int b, int c)
+        //{
+        //    return a * b * c;
+        //}
+        // -----------------------------------------------------
+        // for task 10
+        // Overload 1: Calculate area of a square
+        static double CalculateArea(double side)
         {
-            return a * b;
+            return side * side;
         }
-        static double Multiply(double a, double b)
+        static double CalculateArea(double length, double width)
         {
-            return a * b;
+            return length * width;
         }
-        static int Multiply(int a, int b, int c)
-        {
-            return a * b * c;
-        }
-
 
 
         static void Main(string[] args)
@@ -166,13 +176,48 @@
 
             // --------------------------------------
             // Task 9 - Overloaded Multiply Function
-            int result1 = Multiply(5, 4);
-            double result2 = Multiply(2.5, 3.2);
-            int result3 = Multiply(2, 3, 4);
+            //int result1 = Multiply(5, 4);
+            //double result2 = Multiply(2.5, 3.2);
+            //int result3 = Multiply(2, 3, 4);
 
-            Console.WriteLine("Multiply(int, int): " + result1);
-            Console.WriteLine("Multiply(double, double): " + result2);
-            Console.WriteLine("Multiply(int, int, int): " + result3);
+            //Console.WriteLine("Multiply(int, int): " + result1);
+            //Console.WriteLine("Multiply(double, double): " + result2);
+            //Console.WriteLine("Multiply(int, int, int): " + result3);
+
+            // --------------------------------------
+            // Task 10 - Overloaded Area Calculator
+            Console.WriteLine("Choose a shape:");
+            Console.WriteLine("1. Square");
+            Console.WriteLine("2. Rectangle");
+            Console.Write("Enter your choice: ");
+
+            int choice = int.Parse(Console.ReadLine());
+
+            if (choice == 1)
+            {
+                Console.Write("Enter the side of the square: ");
+                double side = double.Parse(Console.ReadLine());
+
+                double area = CalculateArea(side);
+
+                Console.WriteLine("Square Area: " + area);
+            }
+            else if (choice == 2)
+            {
+                Console.Write("Enter the length of the rectangle: ");
+                double length = double.Parse(Console.ReadLine());
+
+                Console.Write("Enter the width of the rectangle: ");
+                double width = double.Parse(Console.ReadLine());
+
+                double area = CalculateArea(length, width);
+
+                Console.WriteLine("Rectangle Area: " + area);
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice");
+            }
         }
     }
 }
