@@ -31,10 +31,21 @@
         //}
         // -----------------------------------------------------
         // For task 5
-        static bool IsEven(int number)
+        //static bool IsEven(int number)
+        //{
+        //    return number % 2 == 0;
+        //}
+        // -----------------------------------------------------
+        // For task 6
+        static double CalculateArea(double length, double width)
         {
-            return number % 2 == 0;
+            return length * width;
         }
+        static double CalculatePerimeter(double length, double width)
+        {
+            return 2 * (length + width);
+        }
+
         static void Main(string[] args)
         {
             // Task 1 - Personalized Welcome Function
@@ -63,17 +74,31 @@
             // --------------------------------------
 
             // Task 5 - Even or Odd Function
-            Console.Write("Enter a number: ");
-            int number = int.Parse(Console.ReadLine());
+            //Console.Write("Enter a number: ");
+            //int number = int.Parse(Console.ReadLine());
 
-            if (IsEven(number))
-            {
-                Console.WriteLine("Even");
-            }
-            else
-            {
-                Console.WriteLine("Odd");
-            }
+            //if (IsEven(number))
+            //{
+            //    Console.WriteLine("Even");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Odd");
+            //}
+
+            // --------------------------------------
+            // Task 6 - Rectangle Area & Perimeter Functions
+            Console.Write("Enter the length: ");
+            double length = double.Parse(Console.ReadLine());
+
+            Console.Write("Enter the width: ");
+            double width = double.Parse(Console.ReadLine());
+
+            double area = CalculateArea(length, width);
+            double perimeter = CalculatePerimeter(length, width);
+
+            Console.WriteLine("Area: " + area);
+            Console.WriteLine("Perimeter: " + perimeter);
         }
     }
 }
