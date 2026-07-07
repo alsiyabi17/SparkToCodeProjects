@@ -107,40 +107,57 @@
 
             // -------------------------------------------------------------
             // Task 6 - Filtered Shopping List
-            List<string> shoppingList = new List<string>();
+            //List<string> shoppingList = new List<string>();
 
-            string item;
-            while (true)
+            //string item;
+            //while (true)
+            //{
+            //    Console.WriteLine("Enter shopping item (type 'done' to finish): ");
+            //    item = Console.ReadLine();
+
+            //    if (item.ToLower() == "done")
+            //    {
+            //        break;
+            //    }
+
+            //    shoppingList.Add(item); 
+            //}
+
+            //Console.WriteLine("Shopping List Before Removal:");
+
+            //foreach (string shoppingItem in shoppingList)
+            //{
+            //    Console.WriteLine("- " + shoppingItem);
+            //}
+
+            //Console.WriteLine("Enter item name to remove: ");
+            //string removeItem = Console.ReadLine();
+
+            //shoppingList.Remove(removeItem);
+
+            //Console.WriteLine("Shopping List After Removal:");
+
+            //foreach (string shoppingItem in shoppingList)
+            //{
+            //    Console.WriteLine("- " + shoppingItem);
+            //}
+
+            // -------------------------------------------------------------
+            // Task 7 - Stack Reversal
+            List<int> gameScores = new List<int>();
+
+            for (int counter = 0; counter < 5; counter++)
             {
-                Console.WriteLine("Enter shopping item (type 'done' to finish): ");
-                item = Console.ReadLine();
-
-                if (item.ToLower() == "done")
-                {
-                    break;
-                }
-
-                shoppingList.Add(item); 
+                Console.WriteLine("Enter game score " + (counter + 1));
+                gameScores.Add(int.Parse(Console.ReadLine()));
             }
+            gameScores.Sort();
+            gameScores.Reverse();
 
-            Console.WriteLine("Shopping List Before Removal:");
-
-            foreach (string shoppingItem in shoppingList)
-            {
-                Console.WriteLine("- " + shoppingItem);
-            }
-
-            Console.WriteLine("Enter item name to remove: ");
-            string removeItem = Console.ReadLine();
-
-            shoppingList.Remove(removeItem);
-
-            Console.WriteLine("Shopping List After Removal:");
-
-            foreach (string shoppingItem in shoppingList)
-            {
-                Console.WriteLine("- " + shoppingItem);
-            }
+            Console.WriteLine("High Score : ");
+            Console.WriteLine("1st Place: " + gameScores[0]);
+            Console.WriteLine("2nd Place: " + gameScores[1]);
+            Console.WriteLine("3rd Place: " + gameScores[2]);
         }
     } 
 }
