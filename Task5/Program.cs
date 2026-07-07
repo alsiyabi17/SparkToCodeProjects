@@ -38,25 +38,47 @@
 
             // -------------------------------------------------------------
             // Task 3 - Browsing History Stack
-            Stack<string> browserhistory = new Stack<string>();
+            //Stack<string> browserhistory = new Stack<string>();
 
-            Console.WriteLine("Enter 3 websites you visited: ");
+            //Console.WriteLine("Enter 3 websites you visited: ");
 
-            Console.WriteLine("Enter website 1: ");
-            string website1 = Console.ReadLine();
+            //Console.WriteLine("Enter website 1: ");
+            //string website1 = Console.ReadLine();
 
-            Console.WriteLine("Enter website 2: ");
-            string website2 = Console.ReadLine();
+            //Console.WriteLine("Enter website 2: ");
+            //string website2 = Console.ReadLine();
 
-            Console.WriteLine("Enter website 3: ");
-            string website3 = Console.ReadLine();
+            //Console.WriteLine("Enter website 3: ");
+            //string website3 = Console.ReadLine();
 
-            browserhistory.Push(website1);
-            browserhistory.Push(website2);
-            browserhistory.Push(website3);
+            //browserhistory.Push(website1);
+            //browserhistory.Push(website2);
+            //browserhistory.Push(website3);
 
-            string result2 = browserhistory.Pop();
-            Console.WriteLine(browserhistory.Peek());
+            //string result2 = browserhistory.Pop();
+            //Console.WriteLine(browserhistory.Peek());
+
+            // -------------------------------------------------------------
+            // Task 4 - Customer Service Queue
+            Queue<string> customerQueue = new Queue<string>();
+
+            Console.Write("Enter customer 1 name: ");
+            string customer1 = Console.ReadLine();
+
+            Console.Write("Enter customer 2 name: ");
+            string customer2 = Console.ReadLine();
+
+            Console.Write("Enter customer 3 name: ");
+            string customer3 = Console.ReadLine();
+
+            customerQueue.Enqueue(customer1);
+            customerQueue.Enqueue(customer2);
+            customerQueue.Enqueue(customer3);
+
+            string servedCustomer = customerQueue.Dequeue();
+
+            Console.WriteLine("\nCustomer served: " + servedCustomer);
+
         }
     }
 }
