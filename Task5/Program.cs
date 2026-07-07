@@ -144,20 +144,48 @@
 
             // -------------------------------------------------------------
             // Task 7 - Stack Reversal
-            List<int> gameScores = new List<int>();
+            //List<int> gameScores = new List<int>();
 
-            for (int counter = 0; counter < 5; counter++)
+            //for (int counter = 0; counter < 5; counter++)
+            //{
+            //    Console.WriteLine("Enter game score " + (counter + 1));
+            //    gameScores.Add(int.Parse(Console.ReadLine()));
+            //}
+            //gameScores.Sort();
+            //gameScores.Reverse();
+
+            //Console.WriteLine("High Score : ");
+            //Console.WriteLine("1st Place: " + gameScores[0]);
+            //Console.WriteLine("2nd Place: " + gameScores[1]);
+            //Console.WriteLine("3rd Place: " + gameScores[2]);
+
+            // -------------------------------------------------------------
+            // Task 8 - Undo Last Action
+            Stack<string> editorActions = new Stack<string>();
+
+            string action;
+            while (true)
             {
-                Console.WriteLine("Enter game score " + (counter + 1));
-                gameScores.Add(int.Parse(Console.ReadLine()));
-            }
-            gameScores.Sort();
-            gameScores.Reverse();
+                Console.Write("Enter an action (type 'stop' to finish): ");
+                action = Console.ReadLine();
 
-            Console.WriteLine("High Score : ");
-            Console.WriteLine("1st Place: " + gameScores[0]);
-            Console.WriteLine("2nd Place: " + gameScores[1]);
-            Console.WriteLine("3rd Place: " + gameScores[2]);
+                if (action.ToLower() == "stop")
+                {
+                    break;
+                }
+
+                editorActions.Push(action);
+            }
+
+            Console.WriteLine("Undone: " + editorActions.Pop());
+            Console.WriteLine("Undone: " + editorActions.Pop());
+
+            Console.WriteLine("Remaining Actions:");
+
+            foreach (string item in editorActions)
+            {
+                Console.WriteLine(item);
+            }
         }
     } 
 }
