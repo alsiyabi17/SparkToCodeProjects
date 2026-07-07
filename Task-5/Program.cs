@@ -72,12 +72,26 @@
         //}
         // -----------------------------------------------------
         // for task 8
-        static void Countdown(int start)
+        //static void Countdown(int start)
+        //{
+        //    for (int i = start; i >= 1; i--)
+        //    {
+        //        Console.WriteLine(i);
+        //    }
+        //}
+        // -----------------------------------------------------
+        // for task 9
+        static int Multiply(int a, int b)
         {
-            for (int i = start; i >= 1; i--)
-            {
-                Console.WriteLine(i);
-            }
+            return a * b;
+        }
+        static double Multiply(double a, double b)
+        {
+            return a * b;
+        }
+        static int Multiply(int a, int b, int c)
+        {
+            return a * b * c;
         }
 
 
@@ -145,10 +159,20 @@
 
             // --------------------------------------
             // Task 8 - Countdown Function
-            Console.Write("Enter a starting number: ");
-            int start = int.Parse(Console.ReadLine());
+            //Console.Write("Enter a starting number: ");
+            //int start = int.Parse(Console.ReadLine());
 
-            Countdown(start);
+            //Countdown(start);
+
+            // --------------------------------------
+            // Task 9 - Overloaded Multiply Function
+            int result1 = Multiply(5, 4);
+            double result2 = Multiply(2.5, 3.2);
+            int result3 = Multiply(2, 3, 4);
+
+            Console.WriteLine("Multiply(int, int): " + result1);
+            Console.WriteLine("Multiply(double, double): " + result2);
+            Console.WriteLine("Multiply(int, int, int): " + result3);
         }
     }
 }
