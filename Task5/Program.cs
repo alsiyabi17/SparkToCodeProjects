@@ -60,24 +60,50 @@
 
             // -------------------------------------------------------------
             // Task 4 - Customer Service Queue
-            Queue<string> customerQueue = new Queue<string>();
+            //Queue<string> customerQueue = new Queue<string>();
 
-            Console.Write("Enter customer 1 name: ");
-            string customer1 = Console.ReadLine();
+            //Console.Write("Enter customer 1 name: ");
+            //string customer1 = Console.ReadLine();
 
-            Console.Write("Enter customer 2 name: ");
-            string customer2 = Console.ReadLine();
+            //Console.Write("Enter customer 2 name: ");
+            //string customer2 = Console.ReadLine();
 
-            Console.Write("Enter customer 3 name: ");
-            string customer3 = Console.ReadLine();
+            //Console.Write("Enter customer 3 name: ");
+            //string customer3 = Console.ReadLine();
 
-            customerQueue.Enqueue(customer1);
-            customerQueue.Enqueue(customer2);
-            customerQueue.Enqueue(customer3);
+            //customerQueue.Enqueue(customer1);
+            //customerQueue.Enqueue(customer2);
+            //customerQueue.Enqueue(customer3);
 
-            string servedCustomer = customerQueue.Dequeue();
+            //string servedCustomer = customerQueue.Dequeue();
 
-            Console.WriteLine("\nCustomer served: " + servedCustomer);
+            //Console.WriteLine("\nCustomer served: " + servedCustomer);
+
+            // -------------------------------------------------------------
+            // Task 5 - Array Grade Range
+            int[] grades = new int[5];
+
+            for (int i = 0; i < grades.Length; i++)
+            {
+                Console.Write("Enter grade " + (i + 1) + ": ");
+                grades[i] = int.Parse(Console.ReadLine());
+            }
+
+            Array.Sort(grades);
+
+            int total = 0;
+
+            for (int i = 0; i < grades.Length; i++)
+            {
+                total += grades[i];
+            }
+
+            double average = total / 5;
+
+            Console.WriteLine("Grade Results:");
+            Console.WriteLine("Lowest Grade: " + grades[0]);
+            Console.WriteLine("Highest Grade: " + grades[grades.Length - 1]);
+            Console.WriteLine("Average Grade: " + average);
 
         }
     }
