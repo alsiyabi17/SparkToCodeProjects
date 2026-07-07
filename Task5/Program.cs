@@ -189,47 +189,98 @@
 
             // -------------------------------------------------------------
             // Task 9 - Grade Analyzer with Functions
-            List<int> grades = new List<int>();
+            //    List<int> grades = new List<int>();
 
-            Console.Write("How many grades do you want to enter? ");
-            int numberOfGrades = int.Parse(Console.ReadLine());
+            //    Console.Write("How many grades do you want to enter? ");
+            //    int numberOfGrades = int.Parse(Console.ReadLine());
 
-            for (int counter = 0; counter < numberOfGrades; counter++)
+            //    for (int counter = 0; counter < numberOfGrades; counter++)
+            //    {
+            //        Console.Write("Enter grade " + (counter + 1) + ": ");
+            //        grades.Add(int.Parse(Console.ReadLine()));
+            //    }
+
+            //    double average = CalculateAverage(grades);
+            //    int firstFailing = FindFirstFailing(grades);
+
+            //    Console.WriteLine("Average Grade: " + average);
+
+            //    if (firstFailing == 0)
+            //    {
+            //        Console.WriteLine("No failing grade found");
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("failing grade: " + firstFailing);
+            //    }
+            //}
+
+            //static double CalculateAverage(List<int> grades)
+            //{
+            //    int total = 0;
+
+            //    foreach (int grade in grades)
+            //    {
+            //        total += grade;
+            //    }
+
+            //    return (double)total / grades.Count;
+            //}
+
+            //static int FindFirstFailing(List<int> grades)
+            //{
+            //    return grades.Find(x => x < 60);
+            //}
+
+            // -------------------------------------------------------------
+            // Task 10 - Print Queue Manager
+            Queue<string> printQueue = new Queue<string>();
+
+            string job;
+            while (true)
             {
-                Console.Write("Enter grade " + (counter + 1) + ": ");
-                grades.Add(int.Parse(Console.ReadLine()));
+                Console.Write("Enter job's name (type 'done' to stop): ");
+                job = Console.ReadLine();
+
+                if (job.ToLower() == "done")
+                {
+                    break;
+                }
+
+                printQueue.Enqueue(job);
             }
 
-            double average = CalculateAverage(grades);
-            int firstFailing = FindFirstFailing(grades);
-
-            Console.WriteLine("Average Grade: " + average);
-
-            if (firstFailing == 0)
+            Console.WriteLine("Print Queue Before Cancellation:");
+            foreach (string item in printQueue)
             {
-                Console.WriteLine("No failing grade found");
+                Console.WriteLine(item);
             }
-            else
+
+            Console.Write("Enter the job name to cancel: ");
+            string removeJob = Console.ReadLine();
+
+            printQueue = RemoveJob(printQueue, removeJob);
+
+            Console.WriteLine("Queue After Cancellation:");
+            foreach (string item in printQueue)
             {
-                Console.WriteLine("failing grade: " + firstFailing);
+                Console.WriteLine(item);
             }
         }
-
-        static double CalculateAverage(List<int> grades)
+        static Queue<string> RemoveJob(Queue<string> queue, string jobName)
         {
-            int total = 0;
+            Queue<string> newQueue = new Queue<string>();
 
-            foreach (int grade in grades)
+            while (queue.Count > 0)
             {
-                total += grade;
+                string currentJob = queue.Dequeue();
+
+                if (currentJob != jobName)
+                {
+                    newQueue.Enqueue(currentJob);
+                }
             }
-
-            return (double)total / grades.Count;
+            return newQueue;
         }
-
-        static int FindFirstFailing(List<int> grades)
-        {
-            return grades.Find(x => x < 60);
-        }
-    } 
+    }
 }
