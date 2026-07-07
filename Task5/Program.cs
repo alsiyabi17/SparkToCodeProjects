@@ -161,31 +161,75 @@
 
             // -------------------------------------------------------------
             // Task 8 - Undo Last Action
-            Stack<string> editorActions = new Stack<string>();
+            //Stack<string> editorActions = new Stack<string>();
 
-            string action;
-            while (true)
+            //string action;
+            //while (true)
+            //{
+            //    Console.Write("Enter an action (type 'stop' to finish): ");
+            //    action = Console.ReadLine();
+
+            //    if (action.ToLower() == "stop")
+            //    {
+            //        break;
+            //    }
+
+            //    editorActions.Push(action);
+            //}
+
+            //Console.WriteLine("Undone: " + editorActions.Pop());
+            //Console.WriteLine("Undone: " + editorActions.Pop());
+
+            //Console.WriteLine("Remaining Actions:");
+
+            //foreach (string item in editorActions)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            // -------------------------------------------------------------
+            // Task 9 - Grade Analyzer with Functions
+            List<int> grades = new List<int>();
+
+            Console.Write("How many grades do you want to enter? ");
+            int numberOfGrades = int.Parse(Console.ReadLine());
+
+            for (int counter = 0; counter < numberOfGrades; counter++)
             {
-                Console.Write("Enter an action (type 'stop' to finish): ");
-                action = Console.ReadLine();
-
-                if (action.ToLower() == "stop")
-                {
-                    break;
-                }
-
-                editorActions.Push(action);
+                Console.Write("Enter grade " + (counter + 1) + ": ");
+                grades.Add(int.Parse(Console.ReadLine()));
             }
 
-            Console.WriteLine("Undone: " + editorActions.Pop());
-            Console.WriteLine("Undone: " + editorActions.Pop());
+            double average = CalculateAverage(grades);
+            int firstFailing = FindFirstFailing(grades);
 
-            Console.WriteLine("Remaining Actions:");
+            Console.WriteLine("Average Grade: " + average);
 
-            foreach (string item in editorActions)
+            if (firstFailing == 0)
             {
-                Console.WriteLine(item);
+                Console.WriteLine("No failing grade found");
             }
+            else
+            {
+                Console.WriteLine("failing grade: " + firstFailing);
+            }
+        }
+
+        static double CalculateAverage(List<int> grades)
+        {
+            int total = 0;
+
+            foreach (int grade in grades)
+            {
+                total += grade;
+            }
+
+            return (double)total / grades.Count;
+        }
+
+        static int FindFirstFailing(List<int> grades)
+        {
+            return grades.Find(x => x < 60);
         }
     } 
 }
