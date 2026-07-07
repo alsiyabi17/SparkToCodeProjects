@@ -175,7 +175,7 @@
         static void PrintReportCard(string name, double average, string grade)
         {
             Console.WriteLine("Student Report Card");
-            Console.WriteLine("Student Name :" + name);
+            Console.WriteLine("Student Name : " + name);
             Console.WriteLine("Average : " + average);
             Console.WriteLine("Grade : " + grade);
         }
@@ -373,8 +373,6 @@
                 string grade = GetGradeLetter(average);
 
                 PrintReportCard(name, average, grade);
-
-            
         }
     }
 }
