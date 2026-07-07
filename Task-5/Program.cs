@@ -96,16 +96,51 @@
         // -----------------------------------------------------
         // for task 10
         // Overload 1: Calculate area of a square
-        static double CalculateArea(double side)
+        //static double CalculateArea(double side)
+        //{
+        //    return side * side;
+        //}
+        //static double CalculateArea(double length, double width)
+        //{
+        //    return length * width;
+        //}
+        //-----------------------------------------------------
+        // for task 11
+        static double Add(double num1, double num2)
         {
-            return side * side;
-        }
-        static double CalculateArea(double length, double width)
-        {
-            return length * width;
+            return num1 + num2;
         }
 
+        static double Subtract(double num1, double num2)
+        {
+            return num1 - num2;
+        }
 
+        static double MultiplyNumbers(double num1, double num2)
+        {
+            return num1 * num2;
+        }
+        static double DivideNumbers(double num1, double num2)
+        {
+            try
+            {
+                if (num2 == 0)
+                {
+                    throw new DivideByZeroException();
+                }
+
+                return num1 / num2;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Cannot divide by zero.");
+                return 0;
+            }
+        }
+        static void DisplayResult(string operation, double result)
+        {
+            Console.WriteLine(operation + " Result: " + result);
+        }
         static void Main(string[] args)
         {
             // Task 1 - Personalized Welcome Function
@@ -186,38 +221,100 @@
 
             // --------------------------------------
             // Task 10 - Overloaded Area Calculator
-            Console.WriteLine("Choose a shape:");
-            Console.WriteLine("1. Square");
-            Console.WriteLine("2. Rectangle");
-            Console.Write("Enter your choice: ");
+            //Console.WriteLine("Choose a shape:");
+            //Console.WriteLine("1. Square");
+            //Console.WriteLine("2. Rectangle");
+            //Console.Write("Enter your choice: ");
 
-            int choice = int.Parse(Console.ReadLine());
+            //int choice = int.Parse(Console.ReadLine());
 
-            if (choice == 1)
-            {
-                Console.Write("Enter the side of the square: ");
-                double side = double.Parse(Console.ReadLine());
+            //if (choice == 1)
+            //{
+            //    Console.Write("Enter the side of the square: ");
+            //    double side = double.Parse(Console.ReadLine());
 
-                double area = CalculateArea(side);
+            //    double area = CalculateArea(side);
 
-                Console.WriteLine("Square Area: " + area);
-            }
-            else if (choice == 2)
-            {
-                Console.Write("Enter the length of the rectangle: ");
-                double length = double.Parse(Console.ReadLine());
+            //    Console.WriteLine("Square Area: " + area);
+            //}
+            //else if (choice == 2)
+            //{
+            //    Console.Write("Enter the length of the rectangle: ");
+            //    double length = double.Parse(Console.ReadLine());
 
-                Console.Write("Enter the width of the rectangle: ");
-                double width = double.Parse(Console.ReadLine());
+            //    Console.Write("Enter the width of the rectangle: ");
+            //    double width = double.Parse(Console.ReadLine());
 
-                double area = CalculateArea(length, width);
+            //    double area = CalculateArea(length, width);
 
-                Console.WriteLine("Rectangle Area: " + area);
-            }
-            else
-            {
-                Console.WriteLine("Invalid choice");
-            }
+            //    Console.WriteLine("Rectangle Area: " + area);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Invalid choice");
+            //}
+
+            // --------------------------------------
+            // Task 11 - Function-Based Calculator
+                bool running = true;
+
+                while (running)
+                {
+                    Console.WriteLine("\nCalculator Menu");
+                    Console.WriteLine("1. Add");
+                    Console.WriteLine("2. Subtract");
+                    Console.WriteLine("3. Multiply");
+                    Console.WriteLine("4. Divide");
+                    Console.WriteLine("5. Exit");
+                    Console.Write("Choose an operation: ");
+
+                    int choice = int.Parse(Console.ReadLine());
+
+                    if (choice == 5)
+                    {
+                        running = false;
+                        Console.WriteLine("Calculator exited.");
+                        break;
+                    }
+
+                    Console.Write("Enter first number: ");
+                    double num1 = double.Parse(Console.ReadLine());
+
+                    Console.Write("Enter second number: ");
+                    double num2 = double.Parse(Console.ReadLine());
+
+                    double result = 0;
+                    string operation = "";
+
+                    switch (choice)
+                    {
+                        case 1:
+                            result = Add(num1, num2);
+                            operation = "Addition";
+                            break;
+
+                        case 2:
+                            result = Subtract(num1, num2);
+                            operation = "Subtraction";
+                            break;
+
+                        case 3:
+                            result = MultiplyNumbers(num1, num2);
+                            operation = "Multiplication";
+                            break;
+
+                        case 4:
+                            result = DivideNumbers(num1, num2);
+                            operation = "Division";
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid choice.");
+                            continue;
+                    }
+
+                    DisplayResult(operation, result);
+                }
         }
     }
 }
