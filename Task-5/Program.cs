@@ -22,12 +22,18 @@
         //}
         // -----------------------------------------------------
         // For task 4
-        static void DisplayMenu()
+        //static void DisplayMenu()
+        //{
+        //    Console.WriteLine("MENU ");
+        //    Console.WriteLine("1. Start");
+        //    Console.WriteLine("2. Help");
+        //    Console.WriteLine("3. Exit");
+        //}
+        // -----------------------------------------------------
+        // For task 5
+        static bool IsEven(int number)
         {
-            Console.WriteLine("MENU ");
-            Console.WriteLine("1. Start");
-            Console.WriteLine("2. Help");
-            Console.WriteLine("3. Exit");
+            return number % 2 == 0;
         }
         static void Main(string[] args)
         {
@@ -53,8 +59,21 @@
             //Console.WriteLine("Temperature in Fahrenheit: " + fahrenheit);
             // ---------------------------------------
             // Task 4 - Fixed Menu Display Function
-            DisplayMenu();
+            //DisplayMenu();
+            // --------------------------------------
 
+            // Task 5 - Even or Odd Function
+            Console.Write("Enter a number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            if (IsEven(number))
+            {
+                Console.WriteLine("Even");
+            }
+            else
+            {
+                Console.WriteLine("Odd");
+            }
         }
     }
 }
