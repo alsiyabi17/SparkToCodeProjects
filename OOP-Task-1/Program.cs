@@ -475,7 +475,31 @@
         {
             Console.WriteLine("Number of student objects created  = " + Student.CountStudentObjects());
         }
-
+        // Case 18
+        static void OverdrawnAccountCheck()
+        {
+            BankAccount account = ChooseAccount();
+            Console.WriteLine("### Account Status ###");
+            Console.WriteLine("Holder Name: " + account.HolderName);
+            Console.WriteLine("Balance: " + account.Balance);
+            if (account.isOverdrawn)
+            {
+                Console.WriteLine("Warning: This account is CURRENTLY OVERDRAWN!");
+            }
+            else
+            {
+                Console.WriteLine("Status: Account is in good standing.");
+            }
+        }
+        // Case 19
+        static void SetStudentSecurityPin()
+        {
+            Student student = ChooseStudent();
+            Console.WriteLine("Enter your security PIN: ");
+            string PIN = Console.ReadLine();
+            student.pin = PIN;
+            Console.WriteLine("The PIN for " + student.Name + " has been securely updated.");
+        }
     }
 
 }
