@@ -244,6 +244,24 @@ namespace OOP_Task_1
             student.Register(email);
             Console.WriteLine("you have registered successfully. your email will not be revealed anywhere");
         }
+        // Case 7
+        static void CompareAccountBalances()
+        {
+            double B1_balance = B1.Balance;
+            double B2_balance = B2.Balance;
+            if (B1_balance > B2_balance)
+            {
+                Console.WriteLine("Bank account 1 holds more money than Bank account 2");
+            }
+            else if (B2_balance > B1_balance)
+            {
+                Console.WriteLine("Bank account 2 holds more money than Bank account 1");
+            }
+            else
+            {
+                Console.WriteLine("Bank account 1 and 2 hold equal amount of money");
+            }
+        }
 
 
     }
