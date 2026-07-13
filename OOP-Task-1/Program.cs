@@ -391,6 +391,44 @@ namespace OOP_Task_1
                 Console.WriteLine(Math.Abs(product.StockQuantity - quantity) + " additional units would be needed to fulfill the order");
             }
         }
+        // Case 14
+        static void ScholarshipEligibilityCheck()
+        {
+            Student student = ChooseStudent();
+            BankAccount account = ChooseAccount();
+            if (student.Grade >= 80)
+            {
+                if (account.Balance >= 100)
+                {
+                    Console.WriteLine("Eligible for shcolarship");
+                }
+                else
+                {
+                    Console.WriteLine("Not Eligible for shcolarship because account balance is not 100 or above");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Not Eligible for shcolarship because student grade is not 80 or above");
+            }
+        }
+
+        // Case 15
+        static void FullBalanceTopUpFlow()
+        {
+            BankAccount account = ChooseAccount();
+            if (account.Balance >= 50)
+            {
+                Console.WriteLine("no top-up is needed");
+            }
+            else
+            {
+                Console.WriteLine("Balance before deposit the needed amount to reach 100: " + account.Balance);
+                double neededBalance = Math.Abs(100 - account.Balance);
+                account.Deposit(neededBalance);
+                Console.WriteLine("Balance after deposit: " + account.Balance);
+            }
+        }
 
     }
     
