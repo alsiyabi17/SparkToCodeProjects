@@ -284,6 +284,30 @@ namespace OOP_Task_1
                 Console.WriteLine("Stock level is well stocked");
             }
         }
+        // Case 9
+        static void TransferBetweenAccounts()
+        {
+            Console.WriteLine("### you will choose your source and destination account ###");
+
+            Console.WriteLine("Source =>");
+            BankAccount source = ChooseAccount();
+
+            Console.WriteLine("destination =>");
+            BankAccount destination = ChooseAccount();
+
+            Console.WriteLine("Enter the amount you want to transfer: ");
+            double amount = double.Parse(Console.ReadLine());
+
+            if (source.Balance >= amount)
+            {
+                source.Withdraw(amount);
+                destination.Deposit(amount);
+            }
+            else
+            {
+                Console.WriteLine("insufficient balance");
+            }
+        }
 
     }
     
