@@ -228,6 +228,23 @@ namespace OOP_Task_1
             account.Withdraw(amount);
             Console.WriteLine("Updated Balance after the Withdrawal: " + account.Balance);
         }
+        // Case 5
+        static void ViewProductDetails()
+        {
+            Product product = ChooseProduct();
+            Console.WriteLine("Total Inventory Value: " + product.GetInventoryValue());
+        }
+
+        // Case 6
+        static void RegisterStudent()
+        {
+            Student student = ChooseStudent();
+            Console.WriteLine("Enter your Email: ");
+            string email = Console.ReadLine();
+            student.Register(email);
+            Console.WriteLine("you have registered successfully. your email will not be revealed anywhere");
+        }
+
 
     }
     
