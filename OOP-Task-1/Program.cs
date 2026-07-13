@@ -1,6 +1,4 @@
-﻿using System.Net.Sockets;
-
-namespace OOP_Task_1
+﻿namespace OOP_Task_1
 {
     // 1. Required Classes
     public class BankAccount
@@ -111,10 +109,10 @@ namespace OOP_Task_1
     public class Program
     {
         static BankAccount account1 = new BankAccount { AccountNumber = 1, HolderName = "Mohammed", Balance = 1000 };
-        static BankAccount account1 = new BankAccount { AccountNumber = 2, HolderName = "Ali", Balance = 1000 };
+        static BankAccount account2 = new BankAccount { AccountNumber = 2, HolderName = "Ali", Balance = 1000 };
 
-        static Student student1 = new Student { NamedWaitHandleOptions = "Mohammed", Address = "Muscat", Grade = 65 };
-        static Student student1 = new Student { NamedWaitHandleOptions = "omar", Address = "Muscat", Grade = 70 };
+        static Student student1 = new Student { Name = "Mohammed", Address = "Muscat", Grade = 65 };
+        static Student student2 = new Student { Name = "omar", Address = "Muscat", Grade = 70 };
 
         static Product product1 = new Product { ProductName = "Laptop", Price = 5.500, StockQuantity = 10 };
         static Product product2 = new Product { ProductName = "Mobile", Price = 70.500, StockQuantity = 20 };
@@ -194,6 +192,33 @@ namespace OOP_Task_1
             }
         }
 
+        static BankAccount ChooseAccount()
+        {
+            Console.WriteLine("Choose an account:");
+            Console.WriteLine("1. " + account1.HolderName);
+            Console.WriteLine("2. " + account2.HolderName);
+            int choice = int.Parse(Console.ReadLine());
+            return choice == 1 ? account1 : account2;
+        }
+
+        static Student ChooseStudent()
+        {
+            Console.WriteLine("Choose a student:");
+            Console.WriteLine("1. " + student1.Name);
+            Console.WriteLine("2. " + student2.Name);
+            int choice = int.Parse(Console.ReadLine());
+            return choice == 1 ? student1 : student2;
+        }
+
+        static Product ChooseProduct()
+        {
+            Console.WriteLine("Choose a product:");
+            Console.WriteLine("1. " + product1.ProductName);
+            Console.WriteLine("2. " + product2.ProductName);
+            int choice = int.Parse(Console.ReadLine());
+            return choice == 1 ? product1 : product2;
+        }
+
         // Case 1
         static void ViewAccountDetails()
         {
@@ -247,13 +272,13 @@ namespace OOP_Task_1
         // Case 7
         static void CompareAccountBalances()
         {
-            double B1_balance = B1.Balance;
-            double B2_balance = B2.Balance;
-            if (B1_balance > B2_balance)
+            double account1Balance = account1.Balance;
+            double account2Balance = account2.Balance;
+            if (account1Balance > account2Balance)
             {
                 Console.WriteLine("Bank account 1 holds more money than Bank account 2");
             }
-            else if (B2_balance > B1_balance)
+            else if (account2Balance > account1Balance)
             {
                 Console.WriteLine("Bank account 2 holds more money than Bank account 1");
             }
@@ -287,7 +312,7 @@ namespace OOP_Task_1
         // Case 9
         static void TransferBetweenAccounts()
         {
-            Console.WriteLine("### you will choose your source and destination account ###");
+            Console.WriteLine(" you will choose your source and destination account ");
 
             Console.WriteLine("Source =>");
             BankAccount source = ChooseAccount();
@@ -431,5 +456,5 @@ namespace OOP_Task_1
         }
 
     }
-    
+
 }
