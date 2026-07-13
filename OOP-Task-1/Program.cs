@@ -201,6 +201,14 @@ namespace OOP_Task_1
             account.CheckBalance();
         }
 
+        // Case 2
+        static void UpdateStudentAddress()
+        {
+            Student student = ChooseStudent();
+            Console.WriteLine("Enter new Address: ");
+            student.Address = Console.ReadLine();
+            Console.WriteLine("Address is successfully updated to " + student.Address);
+        }
 
     }
     
