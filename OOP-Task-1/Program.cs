@@ -262,7 +262,28 @@ namespace OOP_Task_1
                 Console.WriteLine("Bank account 1 and 2 hold equal amount of money");
             }
         }
+        // Case 8
+        static void RestockProduct()
+        {
+            Product product = ChooseProduct();
+            Console.WriteLine("Enter the quantity of product you want to restock: ");
+            int quantity = int.Parse(Console.ReadLine());
+            product.Restock(quantity);
 
+            int stockQuantity = product.StockQuantity;
+            if (stockQuantity < 10 && stockQuantity >= 0)
+            {
+                Console.WriteLine("Stock level is low");
+            }
+            else if (stockQuantity >= 10 && stockQuantity <= 49)
+            {
+                Console.WriteLine("Stock level is moderate");
+            }
+            else
+            {
+                Console.WriteLine("Stock level is well stocked");
+            }
+        }
 
     }
     
