@@ -308,6 +308,32 @@ namespace OOP_Task_1
                 Console.WriteLine("insufficient balance");
             }
         }
+        // Case 10
+        static void UpdateStudentGrade()
+        {
+            try
+            {
+                Student student = ChooseStudent();
+
+                Console.WriteLine("Enter the new Grade: ");
+                int grade = int.Parse(Console.ReadLine());
+
+                if (grade >= 0 && grade <= 100)
+                {
+                    student.Grade = grade;
+                    Console.WriteLine("Grade successfully updated");
+                }
+                else
+                {
+                    Console.WriteLine("the number you entered is out of the range of (0-100)");
+                }
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("input must be a whole number");
+            }
+
+        }
 
     }
     
