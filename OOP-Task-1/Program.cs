@@ -356,6 +356,41 @@ namespace OOP_Task_1
                 Console.WriteLine("Invalid Grade");
             }
         }
+        // Case 12
+        static void AccountHealthStatus()
+        {
+            BankAccount account = ChooseAccount();
+            if (account.Balance < 50)
+            {
+                Console.WriteLine("Bank account has a Low Balance");
+            }
+            else if (account.Balance >= 50 && account.Balance <= 1000)
+            {
+                Console.WriteLine("Bank account has a Healthy Balance");
+            }
+            else
+            {
+                Console.WriteLine("Bank account has a Premium Balance");
+            }
+        }
+
+        // Case 13
+        static void BulkSaleWithRevenue()
+        {
+            Product product = ChooseProduct();
+            Console.WriteLine("Enter the quantity to sell: ");
+            int quantity = int.Parse(Console.ReadLine());
+            if (product.StockQuantity >= quantity)
+            {
+                product.Sell(quantity);
+                double revenue = quantity * product.Price;
+                Console.WriteLine("Total Revenue = " + revenue);
+            }
+            else
+            {
+                Console.WriteLine(Math.Abs(product.StockQuantity - quantity) + " additional units would be needed to fulfill the order");
+            }
+        }
 
     }
     
