@@ -464,11 +464,18 @@
             Console.Write("Enter Starting Balance: ");
             double balance = double.Parse(Console.ReadLine());
             BankAccount B3 = new BankAccount(accountNum, holderName, balance);
+
             Console.WriteLine("### Newly added Bank Account Info ###");
             Console.WriteLine("Account Number: " + B3.AccountNumber);
             Console.WriteLine("Holder Name: " + B3.HolderName);
             Console.WriteLine("Balance: " + B3.Balance);
         }
+        // Case 17
+        static void TotalStudentsCounter()
+        {
+            Console.WriteLine("Number of student objects created  = " + Student.CountStudentObjects());
+        }
+
     }
 
 }
