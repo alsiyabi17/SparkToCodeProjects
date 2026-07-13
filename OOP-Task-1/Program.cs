@@ -7,6 +7,19 @@
         public string HolderName { get; set; }
         public double Balance { get; set; }
 
+        public bool isOverdrawn
+        {
+            get { return Balance < 0; }
+        }
+        public BankAccount() { }
+
+        public BankAccount(int accountNumber, string holderName, double balance)
+        {
+            AccountNumber = accountNumber;
+            HolderName = holderName;
+            Balance = balance;
+        }
+
         public void Deposit(double amount)
         {
             Balance += amount;
@@ -52,6 +65,24 @@
         public string Address { get; set; }
         private string email;
         int age;
+
+        private string pinValue;
+        public string pin
+        {
+            set { pinValue = value; }
+        }
+
+        private static int studentCount = 0;
+
+        public Student()
+        {
+            studentCount++;
+        }
+
+        public static int CountStudentObjects()
+        {
+            return studentCount;
+        }
 
         public void Register(string Email)
         {
@@ -175,6 +206,10 @@
                     case 13: BulkSaleWithRevenue(); break;
                     case 14: ScholarshipEligibilityCheck(); break;
                     case 15: FullBalanceTopUpFlow(); break;
+                    case 16: QuickAccountOpening(); break;
+                    case 17: TotalStudentsCounter(); break;
+                    case 18: OverdrawnAccountCheck(); break;
+                    case 19: SetStudentSecurityPin(); break;
                     case 20:
                         exitApp = true;
                         Console.WriteLine("Goodbye!");
@@ -454,6 +489,7 @@
                 Console.WriteLine("Balance after deposit: " + account.Balance);
             }
         }
+
         // Case 16
         static void QuickAccountOpening()
         {
@@ -464,7 +500,6 @@
             Console.Write("Enter Starting Balance: ");
             double balance = double.Parse(Console.ReadLine());
             BankAccount B3 = new BankAccount(accountNum, holderName, balance);
-
             Console.WriteLine("### Newly added Bank Account Info ###");
             Console.WriteLine("Account Number: " + B3.AccountNumber);
             Console.WriteLine("Holder Name: " + B3.HolderName);
@@ -500,6 +535,7 @@
             student.pin = PIN;
             Console.WriteLine("The PIN for " + student.Name + " has been securely updated.");
         }
+
     }
 
 }
