@@ -454,7 +454,21 @@
                 Console.WriteLine("Balance after deposit: " + account.Balance);
             }
         }
-
+        // Case 16
+        static void QuickAccountOpening()
+        {
+            Console.Write("Enter Account Number: ");
+            int accountNum = int.Parse(Console.ReadLine());
+            Console.Write("Enter Holder Name: ");
+            string holderName = Console.ReadLine();
+            Console.Write("Enter Starting Balance: ");
+            double balance = double.Parse(Console.ReadLine());
+            BankAccount B3 = new BankAccount(accountNum, holderName, balance);
+            Console.WriteLine("### Newly added Bank Account Info ###");
+            Console.WriteLine("Account Number: " + B3.AccountNumber);
+            Console.WriteLine("Holder Name: " + B3.HolderName);
+            Console.WriteLine("Balance: " + B3.Balance);
+        }
     }
 
 }
