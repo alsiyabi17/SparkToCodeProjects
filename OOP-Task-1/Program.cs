@@ -209,6 +209,17 @@ namespace OOP_Task_1
             student.Address = Console.ReadLine();
             Console.WriteLine("Address is successfully updated to " + student.Address);
         }
+        // Case 3
+        static void MakeDeposit()
+        {
+            BankAccount account = ChooseAccount();
+            Console.WriteLine("Enter the amount that you want to deposit: ");
+            double amount = double.Parse(Console.ReadLine());
+            account.Deposit(amount);
+            Console.WriteLine("Card holder's name: " + account.HolderName);
+            Console.WriteLine("Updated Balance after the deposit: " + account.Balance);
+        }
+
 
     }
     
