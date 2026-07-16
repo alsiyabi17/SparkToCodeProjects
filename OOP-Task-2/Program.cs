@@ -96,7 +96,89 @@
                 Console.WriteLine("0. Exit");
                 Console.WriteLine("================================================");
                 Console.WriteLine("Enter your choice: ");
+
+                int choice;
+                try
+                {
+                    choice = int.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Invalid input. Please enter a number.");
+                    Console.WriteLine("press Enter to return to the menu...");
+                    Console.ReadLine();
+                    Console.Clear();
+                    continue;
+                }
+
+                switch (choice)
+                {
+                    case 1:
+                        AddNewRoom();
+                        break;
+                    case 2:
+                        RegisterNewGuest();
+                        break;
+                    case 3:
+                        BookRoomForGuest();
+                        break;
+                    case 4:
+                        ViewAllRooms();
+                        break;
+                    case 5:
+                        ViewAllGuests();
+                        break;
+                    case 6:
+                        SearchAndFilterRooms();
+                        break;
+                    case 7:
+                        GuestAndBookingStatistics();
+                        break;
+                    case 8:
+                        UpdateRoomPrice();
+                        break;
+                    case 9:
+                        GuestLookupByName();
+                        break;
+                    case 10:
+                        RoomTypeBreakdownReport();
+                        break;
+                    case 11:
+                        CheckOutGuest();
+                        break;
+                    case 12:
+                        RemoveUnavailableRooms();
+                        break;
+                    case 13:
+                        ExtendGuestStay();
+                        break;
+                    case 14:
+                        HighestRevenueBooking();
+                        break;
+                    case 15:
+                        GuestPaginationViewer();
+                        break;
+                    case 0:
+                        exit = true;
+                        Console.WriteLine("Exiting the program...");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        Console.WriteLine("press Enter to return to the menu...");
+                        Console.ReadLine();
+                        Console.Clear();
+                        break;
+                }
+
+                if(!exit)
+                {
+                    Console.WriteLine("press Enter to return to the menu...");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
             }
+
+
             
 
 
