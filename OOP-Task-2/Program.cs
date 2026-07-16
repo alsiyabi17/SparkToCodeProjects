@@ -41,6 +41,15 @@
         public string CheckInDate { get; set; }
         public int TotalNights { get; set; }
 
+        public Guest(string GuestID, string GuestName, int RoomNo, string CheckInDate, int TotalNights)
+        {
+            this.GuestID = GuestID;
+            this.GuestName = GuestName;
+            this.RoomNo = RoomNo;
+            this.CheckInDate = CheckInDate;
+            this.TotalNights = TotalNights;
+        }
+
         public void DisplayGuest()
         {
             Console.WriteLine("Guest Details : ");
@@ -51,9 +60,9 @@
             Console.WriteLine("Total Nights: " + TotalNights);
         }
 
-        public void CalculateTotalCost()
+        public void CalculateTotalCost(double pricePerNight)
         {
-            double totalPrice = TotalNights * Room.PricePerNight;
+            double totalPrice = TotalNights * pricePerNight;
             Console.WriteLine("Total Price: " + totalPrice);
         }
     }
@@ -61,7 +70,7 @@
     {
         static void Main(string[] args)
         {
-            List<Room> rooms = new List<Romm>();
+            List<Room> rooms = new List<Room>();
             List<Guest> guests = new List<Guest>();
 
             rooms.Add(new Room(101, "Single", 100, true));
@@ -170,7 +179,7 @@
                         break;
                 }
 
-                if(!exit)
+                if (!exit)
                 {
                     Console.WriteLine("press Enter to return to the menu...");
                     Console.ReadLine();
@@ -218,6 +227,90 @@
                 }
 
             }
+            // Case 2
+            void RegisterNewGuest()
+            {
+                Console.WriteLine("### Register New Guest ###");
+
+                Console.WriteLine("Enter guest name: ");
+                string gname = Console.ReadLine();
+
+                Console.WriteLine("Enter check-in date: ");
+                string checkIN = Console.ReadLine();
+
+                Console.WriteLine("Enter number of nights: ");
+                int nightNum = int.Parse(Console.ReadLine());
+
+                int nextIdNumber = guests.Count + 1;
+                string guestId = "G" + nextIdNumber.ToString("D3");
+                if (nightNum > 0)
+                {
+                    Guest newGuest = new Guest(guestId, gname, 0, checkIN, nightNum);
+                    guests.Add(newGuest);
+
+                    Console.WriteLine("New guest added successfully");
+                    Console.WriteLine("Guest ID: " + newGuest.GuestID);
+                    Console.WriteLine("Guest Name: " + newGuest.GuestName);
+                    Console.WriteLine("Room Number: Not Assinged");
+                    Console.WriteLine("Total Nights: " + newGuest.TotalNights);
+                }
+                else
+                {
+                    Console.WriteLine("Error: number of nights must be positive");
+                }
+
+            }
+
+            // Case 3
+            void BookRoomForGuest()
+            {
+                Console.WriteLine("Enter Guest ID: ");
+                string guestId = Console.ReadLine();
+
+                Console.WriteLine("Enter the room number: ");
+                int rooNum = int.Parse(Console.ReadLine());
+
+                Guest foundGuest = guests.FirstOrDefault(g => g.GuestID == guestId);
+                Room foundRoom = rooms.FirstOrDefault(r => r.RoomNo == rooNum);
+
+                if (foundGuest != null)
+                {
+                    if (foundRoom != null)
+                    {
+                        if (foundRoom.IsAvailable)
+                        {
+                            foundGuest.RoomNo = foundRoom.RoomNo;
+                            foundRoom.IsAvailable = false;
+
+                            Console.WriteLine("### room is booked successfuly ###");
+                            Console.WriteLine("Guest Name: " + foundGuest.GuestName);
+                            Console.WriteLine("Room Number: " + foundGuest.RoomNo);
+                            Console.WriteLine("Room Type: " + foundRoom.RoomType);
+                            Console.WriteLine("Price Per Night: " + foundRoom.PricePerNight);
+                            Console.WriteLine("Total Nights: " + foundGuest.TotalNights);
+                            foundGuest.CalculateTotalCost(foundRoom.PricePerNight);
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Room is already booked");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: Room is Not Found");
+                        return;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: Guest is Not Found");
+                    return;
+                }
+
+            }
+
 
         }
 
