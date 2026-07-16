@@ -336,7 +336,29 @@
                 }
 
             }
+            void ViewAllGuests()
+            {
+                var sortedGuests = guests.OrderBy(g => g.GuestName);
+                Console.WriteLine("Total Guests in System: " + sortedGuests.Count());
 
+                if (sortedGuests.Count() == 0)
+                {
+                    Console.WriteLine("No guests found in the system.");
+
+                }
+                else
+                {
+                    foreach (Guest guest in sortedGuests)
+                    {
+                        Console.WriteLine("Guest Details: ");
+                        Console.WriteLine("Guest ID: " + guest.GuestID);
+                        Console.WriteLine("Guest Name: " + guest.GuestName);
+                        Console.WriteLine("Room Number: " + (guest.RoomNo == 0 ? "Not Assigned" : guest.RoomNo.ToString()));
+                        Console.WriteLine("Check In Date: " + guest.CheckInDate);
+                        Console.WriteLine("Total Nights: " + guest.TotalNights);
+                    }
+                }
+            }
         }
     }
 }
