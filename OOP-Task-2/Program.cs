@@ -310,9 +310,33 @@
                 }
 
             }
+            // Case 4
+            void ViewAllRooms()
+            {
+                var sortedRooms = rooms.OrderBy(r => r.RoomNo).ToList();
+                Console.WriteLine("Total Rooms in System: " + sortedRooms.Count);
 
+                if (sortedRooms.Count() > 0)
+                {
+                    foreach (Room room in sortedRooms)
+                    {
+                        Console.WriteLine("Room Details: ");
+                        Console.WriteLine("Room Number: " + room.RoomNo);
+                        Console.WriteLine("Room Type: " + room.RoomType);
+                        Console.WriteLine("Price Per Night: " + room.PricePerNight);
+                        if (room.IsAvailable)
+                        {
+                            Console.WriteLine("Room is available");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Room is not available");
+                        }
+                    }
+                }
+
+            }
 
         }
-
     }
 }
