@@ -178,9 +178,46 @@
                 }
             }
 
+            // Case 1
+            void AddNewRoom()
+            {
+                Console.WriteLine("### Add New Room ###");
+                Console.WriteLine("Enter the room number: ");
+                int roomNum = int.Parse(Console.ReadLine());
 
-            
+                Console.WriteLine("Enter the room type (Single / Double / Suite): ");
+                string roomtype = Console.ReadLine();
 
+                Console.WriteLine("Enter the Price per night: ");
+                double price = double.Parse(Console.ReadLine());
+
+                bool roomExist = rooms.Any(r => r.RoomNo == roomNum);
+
+                if (roomNum > 0 && price > 0)
+                {
+                    if (roomExist)
+                    {
+                        Console.WriteLine("Error: Room with same number already exist");
+                        return;
+                    }
+                    else
+                    {
+                        Room newRoom = new Room(roomNum, roomtype, price, true);
+                        rooms.Add(newRoom);
+
+                        Console.WriteLine("New room added successfully");
+                        Console.WriteLine("Room Number: " + newRoom.RoomNo);
+                        Console.WriteLine("Room Type: " + newRoom.RoomType);
+                        Console.WriteLine("Price Per Night: " + newRoom.PricePerNight);
+                        Console.WriteLine("Total Rooms in System: " + rooms.Count);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("both room number and price per night must be positive");
+                }
+
+            }
 
         }
 
