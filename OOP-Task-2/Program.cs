@@ -622,6 +622,65 @@
 
                 Console.WriteLine($"overall average price across all rooms = {Math.Round(rooms.Average(r => r.PricePerNight), 2)}");
             }
+            // Case 11
+            void CheckOutGuest()
+            {
+                Console.WriteLine("Enter guest ID to check out");
+                string GID = Console.ReadLine();
+
+                Guest guestFound = guests.FirstOrDefault(g => g.GuestID.Contains(GID));
+                if (guestFound != null)
+                {
+                    if (guestFound.RoomNo != 0)
+                    {
+                        Room roomFound = rooms.FirstOrDefault(r => r.RoomNo == guestFound.RoomNo);
+                        Console.WriteLine("### Full Final Bill ###");
+                        Console.WriteLine($"Guest Name: {guestFound.GuestName}");
+                        Console.WriteLine($"Guest Room number: {guestFound.RoomNo}");
+                        Console.WriteLine($"Guest Room type: {roomFound.RoomType}");
+                        Console.WriteLine($"Guest Check-In date: {guestFound.CheckInDate}");
+                        Console.WriteLine($"Guest Total Nights: {guestFound.TotalNights}");
+                        Console.WriteLine($"Room price per night: {roomFound.PricePerNight}");
+                        guestFound.CalculateTotalCost(roomFound.PricePerNight);
+
+                        Console.WriteLine("confirm checkout (Y/N)");
+                        string choice = Console.ReadLine();
+
+                        if (choice.ToLower() == "y")
+                        {
+                            roomFound.IsAvailable = true;
+                            guests.Remove(guestFound);
+
+                            Console.WriteLine("Checkout summary:");
+                            Console.WriteLine($"Updated guest count: {guests.Count}");
+                            Console.WriteLine($"Updated room count: {rooms.Count}");
+
+                            bool isRoomAvailable = rooms.Any(r => r.RoomNo == roomFound.RoomNo && r.IsAvailable == true);
+                            Console.WriteLine($"Is room {roomFound.RoomNo} available: {isRoomAvailable}");
+                        }
+
+                        else if (choice.ToLower() == "n")
+                        {
+                            return;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("Error: you must confirm checkout with either 'y' or 'n'");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("This guest has no active booking");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Error: no guest found with '{GID}' guest ID");
+                    return;
+                }
+            }
         }
     }
 }
