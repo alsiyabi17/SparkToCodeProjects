@@ -730,6 +730,46 @@
                     return;
                 }
             }
+            // Case 13
+            void ExtendGuestStay()
+            {
+                Console.WriteLine("Enter guest ID to check out");
+                string GID = Console.ReadLine();
+
+                Guest guest = guests.FirstOrDefault(g => g.GuestID.Contains(GID));
+
+                if (guest != null)
+                {
+                    if (guest.RoomNo != 0)
+                    {
+                        Console.WriteLine("Enter the number of night you want to add: ");
+                        int nights = int.Parse(Console.ReadLine());
+
+                        if (nights > 0)
+                        {
+                            Room room = rooms.FirstOrDefault(r => r.RoomNo == guest.RoomNo);
+                            guest.TotalNights += nights;
+                            Console.WriteLine("updated total nights: " + guest.TotalNights);
+                            guest.CalculateTotalCost(room.PricePerNight);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: Number of nights must be positive");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("This guest has no active booking to extend");
+                        return;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: guest not found");
+                    return;
+                }
+            }
         }
     }
 }
