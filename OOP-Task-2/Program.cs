@@ -482,7 +482,54 @@
                     }
                 }
             }
-        }
+            // Case 7
+            void GuestAndBookingStatistics()
+            {
+                Console.WriteLine("### Guest & Booking Statistics ###");
+                Console.WriteLine("Total Guests: " + guests.Count());
 
+                var bookedGuests = guests.Where(g => g.RoomNo != 0);
+                Console.WriteLine("Total Booked Guests: " + bookedGuests.Count());
+
+                var availableRooms = rooms.Where(r => r.IsAvailable == true);
+                Console.WriteLine("Total Available Rooms: " + availableRooms.Count());
+
+                Console.WriteLine("Total Rooms: " + rooms.Count());
+
+                var bookedRooms = rooms.Where(r => r.IsAvailable == false);
+                Console.WriteLine("Total Booked Rooms: " + bookedRooms.Count());
+
+                if (!guests.Any(g => g.RoomNo != 0))
+                {
+                    Console.WriteLine("No guests have booked rooms yet.");
+                }
+                else
+                {
+                    var AvgGuestsAssigend = guests.Where(g => g.RoomNo != 0).Average(g => g.TotalNights);
+                    Console.WriteLine("Average Nights per Guest: " + AvgGuestsAssigend.ToString("F2"));
+
+                    var TopGuest = guests.Where(g => g.RoomNo != 0).OrderByDescending(g => g.TotalNights * rooms.FirstOrDefault(r => r.RoomNo == g.RoomNo).PricePerNight).Take(3);
+
+                    foreach (var guest in TopGuest)
+                    {
+                        var room = rooms.FirstOrDefault(r => r.RoomNo == guest.RoomNo);
+                        double totalCost = guest.TotalNights * room.PricePerNight;
+                        Console.WriteLine("Top Guest: " + guest.GuestName + ", Total Cost: " + totalCost.ToString("F2"));
+                    }
+                    var summaries = guests
+                        .Where(g => g.RoomNo != 0)
+                        .Select(g => {
+                            double roomPrice = rooms.FirstOrDefault(r => r.RoomNo == g.RoomNo).PricePerNight;
+                            double totalCost = g.TotalNights * roomPrice;
+                            return $"{g.GuestName} — Room {g.RoomNo} — {g.TotalNights} nights — OMR {totalCost.ToString("F2")}";
+                        });
+
+                    foreach (var summary in summaries)
+                    {
+                        Console.WriteLine(summary);
+                    }
+                }
+            }
+        }
     }
 }
