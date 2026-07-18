@@ -634,7 +634,7 @@
                     if (guestFound.RoomNo != 0)
                     {
                         Room roomFound = rooms.FirstOrDefault(r => r.RoomNo == guestFound.RoomNo);
-                        Console.WriteLine("### Full Final Bill ###");
+                        Console.WriteLine("Full Final Bill: ");
                         Console.WriteLine($"Guest Name: {guestFound.GuestName}");
                         Console.WriteLine($"Guest Room number: {guestFound.RoomNo}");
                         Console.WriteLine($"Guest Room type: {roomFound.RoomType}");
@@ -693,7 +693,7 @@
                     return;
                 }
 
-                Console.WriteLine("### Safely Removable Rooms ###");
+                Console.WriteLine("Safely Removable Rooms");
                 foreach (var room in removableRooms)
                 {
                     Console.WriteLine($"Room Number: {room.RoomNo}");
@@ -788,7 +788,7 @@
 
                     if (topEarner != null)
                     {
-                        Console.WriteLine("### Top Revenue Booking ###");
+                        Console.WriteLine("Top Revenue Booking: ");
                         Console.WriteLine($"Guest Name: {topEarner.GuestName}");
                         Console.WriteLine($"Room Number: {topEarner.RoomNo}");
                         Console.WriteLine($"Total Cost: {topEarner.TotalCost.ToString("F2")} OMR");
@@ -798,6 +798,34 @@
                 {
                     Console.WriteLine("No active bookings recorded.");
                     return;
+                }
+            }
+            // Case 15
+            void GuestPaginationViewer()
+            {
+                int totalPages = (guests.Count + 2) / 3;
+
+                if (totalPages == 0)
+                {
+                    Console.WriteLine("No guests are currently registered.");
+                    return;
+                }
+
+                Console.WriteLine($"Enter page number (1 to {totalPages}):");
+                int page = int.Parse(Console.ReadLine());
+
+                if (page < 1 || page > totalPages)
+                {
+                    Console.WriteLine("That page does not exist.");
+                    return;
+                }
+
+                Console.WriteLine($"\n--- Page {page} of {totalPages} ---");
+                foreach (var g in guests.Skip((page - 1) * 3).Take(3))
+                {
+                    Console.WriteLine($"Guest ID: {g.GuestID}");
+                    Console.WriteLine($"Name: {g.GuestName}");
+                    Console.WriteLine($"Room: {(g.RoomNo == 0 ? "Not Assigned" : g.RoomNo)}");
                 }
             }
         }
