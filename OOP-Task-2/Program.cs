@@ -530,6 +530,59 @@
                     }
                 }
             }
+            // Case 8
+            void UpdateRoomPrice()
+            {
+                Console.WriteLine("Enter a room number: ");
+                int rnum = int.Parse(Console.ReadLine());
+                var room = rooms.FirstOrDefault(r => r.RoomNo == rnum);
+
+                if (room != null)
+                {
+                    Console.WriteLine("Enter the updated  new price per night: ");
+                    double perNight = double.Parse(Console.ReadLine());
+
+                    if (perNight >= 0)
+                    {
+                        Console.WriteLine($"Old price per night: {room.PricePerNight}");
+                        room.PricePerNight = perNight;
+                        Console.WriteLine($"new price per night: {room.PricePerNight}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: the newly entered price must be positive");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Error: room with {rnum} number is not found");
+                    return;
+                }
+            }
+            // Case 9
+            void GuestLookupByName()
+            {
+                Console.WriteLine("Enter name or partial name to search for: ");
+                string searchName = Console.ReadLine();
+
+                var guestFound = guests.Where(g => g.GuestName.ToLower().Contains(searchName.ToLower()));
+
+                if (guestFound.Count() != 0)
+                {
+                    Console.WriteLine($"{guestFound.Count()} guests found with name '{searchName}' ");
+                    foreach (var guest in guestFound)
+                    {
+                        Console.WriteLine("Found guest by name info :");
+                        Console.WriteLine($"Guest ID: {guest.GuestID}");
+                        Console.WriteLine($"Guest Name: {guest.GuestName}");
+                        Console.WriteLine($"Guest Room number: {guest.RoomNo}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No guests matched that search");
+                }
+            }
         }
     }
 }
