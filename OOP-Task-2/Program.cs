@@ -770,6 +770,36 @@
                     return;
                 }
             }
+            // Case 14
+            void HighestRevenueBooking()
+            {
+                var activeGuests = guests.Where(g => g.RoomNo != 0);
+
+                if (activeGuests.Count() != 0)
+                {
+                    var selectedGuests = activeGuests.Select(g => new
+                    {
+                        g.GuestName,
+                        g.RoomNo,
+                        TotalCost = g.TotalNights * rooms.First(r => r.RoomNo == g.RoomNo).PricePerNight
+                    }).ToList();
+
+                    var topEarner = selectedGuests.OrderByDescending(g => g.TotalCost).FirstOrDefault();
+
+                    if (topEarner != null)
+                    {
+                        Console.WriteLine("### Top Revenue Booking ###");
+                        Console.WriteLine($"Guest Name: {topEarner.GuestName}");
+                        Console.WriteLine($"Room Number: {topEarner.RoomNo}");
+                        Console.WriteLine($"Total Cost: {topEarner.TotalCost.ToString("F2")} OMR");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No active bookings recorded.");
+                    return;
+                }
+            }
         }
     }
 }
