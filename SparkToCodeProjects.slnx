@@ -1,4 +1,9 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="DatabaseTasks/Airline Information System.drawio.png" />
+    <File Path="DatabaseTasks/College Management System.drawio.png" />
+    <File Path="DatabaseTasks/Company Database.drawio.png" />
+  </Folder>
   <Project Path="Csharp Functions/Csharp Functions.csproj" Id="cf444ece-8b42-40f6-afb7-f54d931f6857" />
   <Project Path="CsharpCollections/CsharpCollections.csproj" Id="59e8283d-c818-43eb-96e3-5c267c037fed" />
   <Project Path="CsharpPart1/CsharpPart1.csproj" />
