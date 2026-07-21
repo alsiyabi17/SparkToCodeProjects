@@ -130,3 +130,11 @@ VALUES ('11223344', 'omar', 'T', 'alharthi', '2000-12-08', 'muscat', 'M', 40000.
 -- 4. Insert Dependent
 INSERT INTO DEPENDENT (Essn, Dependent_name, Sex, Bdate, Relationship)
 VALUES ('44556677', 'ali', 'F', '2006-04-05', 'brother');
+
+-- 5. Insert a Project and link it via Works_On hours log
+INSERT INTO PROJECT (Pname, Pnumber, Plocation, Dnum)
+VALUES ('product', 11, 'muscat', 1);
+
+INSERT INTO WORKS_ON (Essn, Pno, Hours)
+VALUES ('99998888', 11, 32.5);
+GO
