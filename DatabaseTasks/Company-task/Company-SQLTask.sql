@@ -114,8 +114,8 @@ GO
 -- 5 INSERT STATEMENTS
 -- 1. Insert a Manager Employee
 INSERT INTO EMPLOYEE (Ssn, Fname, Minit, Lname, Bdate, Address, Sex, Salary, Super_ssn, Dno)
-VALUES ('987654321', 'James', 'E', 'Borg', '1965-11-10', '450 Stone Rd, Houston, TX', 'M', 55000.00, NULL, NULL);
+VALUES ('99998888', 'mohammed', 'E', 'Borg', '1999-11-10', 'muscat', 'M', 60000.00, NULL, NULL);
 
 -- 2. Insert the Department 
 INSERT INTO DEPARTMENT (Dname, Dnumber, Mgr_ssn, Mgr_start_date)
-VALUES ('Headquarters', 1, '987654321', '2020-01-01');
+VALUES ('Headquarters', 1, '99887766', '2026-01-01');
