@@ -116,3 +116,6 @@ GO
 INSERT INTO EMPLOYEE (Ssn, Fname, Minit, Lname, Bdate, Address, Sex, Salary, Super_ssn, Dno)
 VALUES ('987654321', 'James', 'E', 'Borg', '1965-11-10', '450 Stone Rd, Houston, TX', 'M', 55000.00, NULL, NULL);
 
+-- 2. Insert the Department 
+INSERT INTO DEPARTMENT (Dname, Dnumber, Mgr_ssn, Mgr_start_date)
+VALUES ('Headquarters', 1, '987654321', '2020-01-01');
