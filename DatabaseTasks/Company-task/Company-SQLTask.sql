@@ -62,3 +62,16 @@ CREATE TABLE WORKS_ON (
     CONSTRAINT PK_WORKS_ON PRIMARY KEY (Essn, Pno),
     CONSTRAINT CHK_WorksOn_Hours CHECK (Hours >= 0.0)
 );
+
+-- 6. DEPENDENT Table 
+CREATE TABLE DEPENDENT (
+    Essn CHAR(9) NOT NULL,
+    Dependent_name VARCHAR(15) NOT NULL,
+    Sex CHAR(1) NULL,
+    Bdate DATE NULL,
+    Relationship VARCHAR(20) NULL,
+    
+    CONSTRAINT PK_DEPENDENT PRIMARY KEY (Essn, Dependent_name),
+    CONSTRAINT CHK_Dependent_Sex CHECK (Sex IN ('M', 'F')) 
+);
+GO
