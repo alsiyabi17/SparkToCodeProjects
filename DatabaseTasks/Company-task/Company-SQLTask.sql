@@ -119,3 +119,6 @@ VALUES ('99998888', 'mohammed', 'E', 'Borg', '1999-11-10', 'muscat', 'M', 60000.
 -- 2. Insert the Department 
 INSERT INTO DEPARTMENT (Dname, Dnumber, Mgr_ssn, Mgr_start_date)
 VALUES ('Headquarters', 1, '99887766', '2026-01-01');
+
+-- update Dno
+UPDATE EMPLOYEE SET Dno = 1 WHERE Ssn = '99998888';
