@@ -52,3 +52,13 @@ CREATE TABLE PROJECT (
     CONSTRAINT PK_PROJECT PRIMARY KEY (Pnumber),
     CONSTRAINT UQ_Project_Pname UNIQUE (Pname)
 );
+
+-- 5. WORKS_ON Table
+CREATE TABLE WORKS_ON (
+    Essn CHAR(9) NOT NULL,
+    Pno INT NOT NULL,
+    Hours DECIMAL(4, 1) NULL,
+    
+    CONSTRAINT PK_WORKS_ON PRIMARY KEY (Essn, Pno),
+    CONSTRAINT CHK_WorksOn_Hours CHECK (Hours >= 0.0)
+);
