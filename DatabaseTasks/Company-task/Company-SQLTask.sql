@@ -114,7 +114,7 @@ GO
 -- 5 INSERT STATEMENTS
 -- 1. Insert a Manager Employee
 INSERT INTO EMPLOYEE (Ssn, Fname, Minit, Lname, Bdate, Address, Sex, Salary, Super_ssn, Dno)
-VALUES ('99998888', 'mohammed', 'E', 'Borg', '1999-11-10', 'muscat', 'M', 60000.00, NULL, NULL);
+VALUES ('99998888', 'mohammed', 'E', 'alsiyabi', '1999-11-10', 'muscat', 'M', 60000.00, NULL, NULL);
 
 -- 2. Insert the Department 
 INSERT INTO DEPARTMENT (Dname, Dnumber, Mgr_ssn, Mgr_start_date)
@@ -122,3 +122,11 @@ VALUES ('Headquarters', 1, '99887766', '2026-01-01');
 
 -- update Dno
 UPDATE EMPLOYEE SET Dno = 1 WHERE Ssn = '99998888';
+
+-- 3. Insert a normal Employee
+INSERT INTO EMPLOYEE (Ssn, Fname, Minit, Lname, Bdate, Address, Sex, Salary, Super_ssn, Dno)
+VALUES ('11223344', 'omar', 'T', 'alharthi', '2000-12-08', 'muscat', 'M', 40000.00, '987654321', 1);
+
+-- 4. Insert Dependent
+INSERT INTO DEPENDENT (Essn, Dependent_name, Sex, Bdate, Relationship)
+VALUES ('44556677', 'ali', 'F', '2006-04-05', 'brother');
