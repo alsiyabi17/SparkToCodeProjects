@@ -111,4 +111,8 @@ ALTER TABLE DEPENDENT ADD CONSTRAINT FK_DEPENDENT_DEPENDENTS_OF
     ON DELETE CASCADE;
 GO
 
+-- 5 INSERT STATEMENTS
+-- 1. Insert a Manager Employee
+INSERT INTO EMPLOYEE (Ssn, Fname, Minit, Lname, Bdate, Address, Sex, Salary, Super_ssn, Dno)
+VALUES ('987654321', 'James', 'E', 'Borg', '1965-11-10', '450 Stone Rd, Houston, TX', 'M', 55000.00, NULL, NULL);
 
