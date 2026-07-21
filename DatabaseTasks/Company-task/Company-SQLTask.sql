@@ -138,3 +138,9 @@ VALUES ('product', 11, 'muscat', 1);
 INSERT INTO WORKS_ON (Essn, Pno, Hours)
 VALUES ('99998888', 11, 32.5);
 GO
+
+-- 5 UPDATE STATEMENTS
+-- 1. Give an employee a raise
+UPDATE EMPLOYEE
+SET Salary = Salary + 5000.00
+WHERE Ssn = '11223344';
