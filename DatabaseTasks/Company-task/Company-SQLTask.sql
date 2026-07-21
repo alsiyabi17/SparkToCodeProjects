@@ -176,3 +176,12 @@ GO
 -- 1. Deleting Emp.
 DELETE FROM EMPLOYEE
 WHERE Ssn = '11223344';
+
+-- 2. Manual parent re-routing constraint handling
+UPDATE EMPLOYEE
+SET Dno = NULL
+WHERE Dno = 2;
+
+DELETE FROM DEPARTMENT
+WHERE Dnumber = 2;
+GO
