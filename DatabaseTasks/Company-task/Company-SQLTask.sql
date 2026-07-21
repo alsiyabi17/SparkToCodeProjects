@@ -155,3 +155,8 @@ VALUES ('Administration', 2, '55667788');
 UPDATE EMPLOYEE
 SET Dno = 2
 WHERE Ssn = '11223344';
+
+-- 3. Change a project's operational location
+UPDATE PROJECT
+SET Plocation = 'Seeb'
+WHERE Pnumber = 11;
