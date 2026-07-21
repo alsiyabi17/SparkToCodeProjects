@@ -165,3 +165,14 @@ WHERE Pnumber = 11;
 UPDATE WORKS_ON
 SET Hours = 40.0
 WHERE Essn = '11223344' AND Pno = 11;
+
+-- 5. Correct a dependent's profile record details
+UPDATE DEPENDENT
+SET Relationship = 'Brother'
+WHERE Essn = '11223344' AND Dependent_name = 'ali';
+GO
+
+-- 2 DELETE STATEMENTS
+-- 1. Deleting Emp.
+DELETE FROM EMPLOYEE
+WHERE Ssn = '11223344';
