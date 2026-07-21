@@ -22,3 +22,14 @@ CREATE TABLE EMPLOYEE (
     CONSTRAINT CHK_Employee_Sex CHECK (Sex IN ('M', 'F'))
 );
 
+
+-- 2. DEPARTMENT Table
+CREATE TABLE DEPARTMENT (
+    Dname VARCHAR(25) NOT NULL,
+    Dnumber INT NOT NULL,
+    Mgr_ssn CHAR(9) NOT NULL,
+    Mgr_start_date DATE NULL DEFAULT GETDATE(),
+    
+    CONSTRAINT PK_DEPARTMENT PRIMARY KEY (Dnumber),
+    CONSTRAINT UQ_Department_Dname UNIQUE (Dname)
+);
