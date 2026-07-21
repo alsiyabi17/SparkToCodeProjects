@@ -160,3 +160,8 @@ WHERE Ssn = '11223344';
 UPDATE PROJECT
 SET Plocation = 'Seeb'
 WHERE Pnumber = 11;
+
+-- 4. Update logged hours on a project
+UPDATE WORKS_ON
+SET Hours = 40.0
+WHERE Essn = '11223344' AND Pno = 11;
