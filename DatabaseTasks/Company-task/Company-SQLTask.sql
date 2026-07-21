@@ -41,3 +41,14 @@ CREATE TABLE DEPT_LOCATIONS (
     
     CONSTRAINT PK_DEPT_LOCATIONS PRIMARY KEY (Dnumber, Dlocation)
 );
+
+-- 4. PROJECT Table
+CREATE TABLE PROJECT (
+    Pname VARCHAR(25) NOT NULL,
+    Pnumber INT NOT NULL,
+    Plocation VARCHAR(15) NULL,
+    Dnum INT NOT NULL,
+    
+    CONSTRAINT PK_PROJECT PRIMARY KEY (Pnumber),
+    CONSTRAINT UQ_Project_Pname UNIQUE (Pname)
+);
