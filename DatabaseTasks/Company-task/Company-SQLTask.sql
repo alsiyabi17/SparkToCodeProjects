@@ -144,3 +144,14 @@ GO
 UPDATE EMPLOYEE
 SET Salary = Salary + 5000.00
 WHERE Ssn = '11223344';
+
+-- 2. Reassign an employee to a new department
+INSERT INTO EMPLOYEE (Ssn, Fname, Lname, Sex, Salary)
+VALUES ('55667788', 'Ali', 'Alriyami', 'M', 25000);
+
+INSERT INTO DEPARTMENT (Dname, Dnumber, Mgr_ssn)
+VALUES ('Administration', 2, '55667788');
+
+UPDATE EMPLOYEE
+SET Dno = 2
+WHERE Ssn = '11223344';
