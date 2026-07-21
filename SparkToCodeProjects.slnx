@@ -1,4 +1,9 @@
 <Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Default" />
+    <BuildType Name="Release" />
+  </Configurations>
   <Folder Name="/Solution Items/">
     <File Path="DatabaseTasks/Airline Information System.drawio.png" />
     <File Path="DatabaseTasks/Airline mapping.png" />
@@ -7,18 +12,65 @@
     <File Path="DatabaseTasks/Company Database.drawio.png" />
     <File Path="DatabaseTasks/Company mapping.png" />
   </Folder>
-  <Project Path="Csharp Functions/Csharp Functions.csproj" Id="cf444ece-8b42-40f6-afb7-f54d931f6857" />
-  <Project Path="CsharpCollections/CsharpCollections.csproj" Id="59e8283d-c818-43eb-96e3-5c267c037fed" />
-  <Project Path="CsharpPart1/CsharpPart1.csproj" />
-  <Project Path="CsharpPart2/CsharpPart2.csproj" Id="2a4504aa-a230-4245-9ff7-c302fe772ed3" />
-  <Project Path="Mini Compound Project/Mini Compound Project.csproj" Id="2891ca1c-f526-4e2b-b43f-008235b75bec" />
-  <Project Path="OOP-Task-1/OOP-Task-1.csproj" Id="8399248f-18cd-4887-82ec-76ff59701ec5" />
-  <Project Path="OOP-Task-2/OOP-Task-2.csproj" Id="f1506e99-6b77-41c0-9bd5-7aebfd0baef6" />
-  <Project Path="OOP_Part1/OOP_Part1.csproj" Id="96c421e1-a891-4be7-95a3-e3dbb4bd64f8" />
-  <Project Path="OOP_Part2/OOP_Part2.csproj" Id="d26bb62b-d035-4320-9267-f24e7154d9bb" />
-  <Project Path="Task-1/Task-1.csproj" Id="5931eb70-fee4-47bd-88d5-56eb55a8dbb6" />
-  <Project Path="Task-2/Task-2.csproj" Id="9b736dd1-edbd-4885-a537-18b9732b5b73" />
-  <Project Path="Task-3/Task-3.csproj" Id="bfd97701-cebb-4446-ba90-dd2c59c08a2e" />
-  <Project Path="Task-5/Task-4.csproj" Id="860ede77-72ed-4df1-b356-00f1034373f9" />
-  <Project Path="Task5/Task5.csproj" Id="d5190dd8-3a4c-45ce-afb6-6b0fa041123d" />
+  <Project Path="Csharp Functions/Csharp Functions.csproj" Id="cf444ece-8b42-40f6-afb7-f54d931f6857">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="CsharpCollections/CsharpCollections.csproj" Id="59e8283d-c818-43eb-96e3-5c267c037fed">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="CsharpPart1/CsharpPart1.csproj">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="CsharpPart2/CsharpPart2.csproj" Id="2a4504aa-a230-4245-9ff7-c302fe772ed3">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="DatabaseTasks/Company-task/Company-task.ssmssqlproj" Type="4f2e2c19-372f-40d8-9fa7-9d2138c6997a">
+    <BuildType Project="Default" />
+    <Platform Project="?" />
+    <Build Project="false" />
+  </Project>
+  <Project Path="Mini Compound Project/Mini Compound Project.csproj" Id="2891ca1c-f526-4e2b-b43f-008235b75bec">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="OOP-Task-1/OOP-Task-1.csproj" Id="8399248f-18cd-4887-82ec-76ff59701ec5">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="OOP-Task-2/OOP-Task-2.csproj" Id="f1506e99-6b77-41c0-9bd5-7aebfd0baef6">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="OOP_Part1/OOP_Part1.csproj" Id="96c421e1-a891-4be7-95a3-e3dbb4bd64f8">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="OOP_Part2/OOP_Part2.csproj" Id="d26bb62b-d035-4320-9267-f24e7154d9bb">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="Task-1/Task-1.csproj" Id="5931eb70-fee4-47bd-88d5-56eb55a8dbb6">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="Task-2/Task-2.csproj" Id="9b736dd1-edbd-4885-a537-18b9732b5b73">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="Task-3/Task-3.csproj" Id="bfd97701-cebb-4446-ba90-dd2c59c08a2e">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="Task-5/Task-4.csproj" Id="860ede77-72ed-4df1-b356-00f1034373f9">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
+  <Project Path="Task5/Task5.csproj" Id="d5190dd8-3a4c-45ce-afb6-6b0fa041123d">
+    <BuildType Solution="Default|*" Project="Release" />
+    <Build Solution="Default|*" Project="false" />
+  </Project>
 </Solution>
