@@ -33,6 +33,9 @@
     <Platform Project="?" />
     <Build Project="false" />
   </Project>
+  <Project Path="EFCoreProject/EFCoreProject.csproj" Id="b5149052-a9e8-4c88-8145-109ffcac66ab">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
   <Project Path="Mini Compound Project/Mini Compound Project.csproj" Id="2891ca1c-f526-4e2b-b43f-008235b75bec">
     <BuildType Solution="Default|*" Project="Release" />
     <Build Solution="Default|*" Project="false" />
