@@ -15,7 +15,7 @@ namespace EFCoreProject
         // 2- Configure database connection
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=.;Database=CompanyProjectDb;Trusted_Connection=true;TrustServerCertificate=true;");
+            optionsBuilder.UseSqlServer("Server=Mohammed\\SQLEXPRESS;Database=CompanyProjectDb;Trusted_Connection=true;TrustServerCertificate=true;");
         }
     }
 }
