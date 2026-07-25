@@ -3,6 +3,7 @@ using EFCoreProject;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFCoreProject.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    partial class ProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20260725190653_deleteddeptdb")]
+    partial class deleteddeptdb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,29 +23,6 @@ namespace EFCoreProject.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("EFCoreProject.Models.Department", b =>
-                {
-                    b.Property<int>("DepartmentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentId"));
-
-                    b.Property<string>("DepartmentName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DepartmentNumber")
-                        .HasColumnType("int");
-
-                    b.Property<double>("DepartmentSalary")
-                        .HasColumnType("float");
-
-                    b.HasKey("DepartmentId");
-
-                    b.ToTable("Departments");
-                });
 
             modelBuilder.Entity("EFCoreProject.Models.Employee", b =>
                 {
@@ -61,6 +41,9 @@ namespace EFCoreProject.Migrations
 
                     b.Property<double>("EmployeeSalary")
                         .HasColumnType("float");
+
+                    b.Property<int>("EmployeeSsn")
+                        .HasColumnType("int");
 
                     b.HasKey("EmployeeId");
 
