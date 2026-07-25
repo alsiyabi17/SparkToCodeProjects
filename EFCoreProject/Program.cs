@@ -33,6 +33,22 @@ namespace EFCoreProject
 
             context.Employees.Add(e1);
             context.SaveChanges();
+
+            // case 2 delete employee
+            Console.WriteLine("enter employee ID to delete");
+            int employeeId = Convert.ToInt32(Console.ReadLine());
+
+            Employee employee = context.Employees.FirstOrDefault(e => e.EmployeeId == employeeId);
+            if (employee == null)
+            {
+                Console.WriteLine("Employee not found");
+            }
+            else
+            {
+                context.Employees.Remove(employee);
+                context.SaveChanges();
+                Console.WriteLine("Employee deleted successfully");
+            }
         }
     }
 }
