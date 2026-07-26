@@ -29,8 +29,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6bcd4aab-05f4-4be5-a964-1b294c9da990" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SparkToCodeProjects/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SparkToCodeProjects/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EFCoreProject/Models/Employee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EFCoreProject/Models/Employee.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EFCoreProject/ProjectContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EFCoreProject/ProjectContext.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -477,7 +475,7 @@
       <workItem from="1784996493604" duration="91000" />
       <workItem from="1785009873333" duration="62000" />
       <workItem from="1785010349965" duration="30000" />
-      <workItem from="1785046402519" duration="3313000" />
+      <workItem from="1785046402519" duration="3798000" />
     </task>
     <servers />
   </component>
