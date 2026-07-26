@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreProject.Models;
 
-[PrimaryKey(nameof(EmployeeId), nameof(DepartmentName))]
+[PrimaryKey(nameof(EmployeeId), nameof(DependentName))]
 
 public class Dependent
 {

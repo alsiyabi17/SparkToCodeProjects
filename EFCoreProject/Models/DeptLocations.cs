@@ -7,7 +7,7 @@ namespace EFCoreProject.Models;
 
 public class DeptLocations
 {
-    [ForeignKey(Dept)]
+    [ForeignKey("Dept")]
     public int DepartmentId { get; set; }
     public Department Dept { get; set; }
     
