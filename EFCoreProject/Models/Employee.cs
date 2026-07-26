@@ -32,6 +32,8 @@ namespace EFCoreProject.Models
         // public List<Project> projects { get; set; }
         public List<empProj> empProjs { get; set; }
         
+        
+        //Self-relationship
         //Supervision
         [InverseProperty("supervisor")]
         public List<Employee> supervisee { get; set; }
