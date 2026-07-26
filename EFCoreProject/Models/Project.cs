@@ -11,5 +11,5 @@ public class Project
     
     // Public List<Employee> Employees { get; set; }
     
-    public List<empProject> empProject { get; set; }
+    public List<empProj> empProj { get; set; }
 }
