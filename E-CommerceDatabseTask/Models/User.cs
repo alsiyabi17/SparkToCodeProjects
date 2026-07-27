@@ -12,5 +12,8 @@ namespace E_CommerceDatabseTask.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+
+        // One User -> Many Orders
+        public List<Order> Orders { get; set; }
     }
 }
