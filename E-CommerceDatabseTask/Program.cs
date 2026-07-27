@@ -290,8 +290,48 @@ namespace E_CommerceDatabseTask
             }
             static void ViewOrderDetails()
             {
-                // TODO: implement
+                Console.WriteLine("Enter order Id: ");
+                int orderid = int.Parse(Console.ReadLine());
+
+                Order order = context.orders
+                    .Include(op => op.OrderProduct)
+                    .ThenInclude(p => p.product)
+                    .Include(o => o.Review)
+                    .FirstOrDefault(o => o.OrderId == orderid);
+
+                if (order != null)
+                {
+                    double orderTotal = 0;
+
+                    Console.WriteLine("=============================");
+                    Console.WriteLine($"Order ID: {order.OrderId}");
+                    Console.WriteLine($"Order Date: {order.Date}");
+                    Console.WriteLine("Products:");
+
+                    foreach (var item in order.OrderProduct)
+                    {
+                        double itemTotal = item.product.Price * item.Quantity;
+                        orderTotal += itemTotal;
+                        Console.WriteLine($"  - {item.product.ProductName} (Quantity: {item.Quantity}) - Price: {item.product.Price} each");
+                    }
+
+                    Console.WriteLine($"Order Total: {orderTotal}");
+
+                    if (order.Review != null)
+                    {
+                        Console.WriteLine($"Review: {order.Review.Comment}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Review: No review exists for this order.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: no order found");
+                }
             }
+
             static void AddReview()
             {
                 // TODO: implement - check loggedInUserId != 0 first
