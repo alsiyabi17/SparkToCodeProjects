@@ -111,15 +111,37 @@ namespace E_CommerceDatabseTask
             }
             static void AddCategory()
             {
-                // TODO: implement
+                Category category = new Category();
+
+                Console.WriteLine("Enter Category Name : ");
+                category.CategoryName = Console.ReadLine();
+
+                context.Category.Add(category);
+                context.SaveChanges();
+                Console.WriteLine("Category added successfully");
+
             }
             static void AddProduct()
             {
-                // TODO: implement
+                Product product = new Product();
+
+                Console.WriteLine("Enter product name : ");
+                product.ProductName = Console.ReadLine();
+
+                Console.WriteLine("Enter product price : ");
+                product.Price = Console.ReadLine();
+
+                Console.WriteLine("Enter Category Id : ");
+                product.CategoryId = int.Parse(Console.ReadLine());
+
+                context.Products.Add(product);
+                context.SaveChanges();
+                Console.WriteLine("Product added successfully");
+
             }
             static void ViewAllProducts()
             {
-                // TODO: implement
+                
             }
             static void PlaceOrder()
             {
