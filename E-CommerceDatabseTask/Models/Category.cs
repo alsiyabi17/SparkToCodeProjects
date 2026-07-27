@@ -9,7 +9,7 @@ namespace E_CommerceDatabseTask.Models
     {
         [Key]
         public int CategoryId { get; set; }
-        public int CategoryName { get; set; }
+        public string CategoryName { get; set; }
 
         // One Category -> Many Products
         public List<Product> Products { get; set; } 
