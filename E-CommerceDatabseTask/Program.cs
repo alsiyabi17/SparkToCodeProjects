@@ -93,7 +93,21 @@ namespace E_CommerceDatabseTask
             }
             static void Login()
             {
-                // TODO: implement - on success, set loggedInUserId = <found user's Id>
+                Console.WriteLine("Enter email : ");
+                string email = Console.ReadLine();
+
+                Console.WriteLine("Enter Password : ");
+                string password = Console.ReadLine();
+
+                User user = context.User.FirstOrDefault(e => e.Email == email && e.Password == password);
+                if (user == null) {
+                    loggedInUserId = user.UserId;
+                    Console.WriteLine("Successfully Logged In");
+                 }
+                else
+                {
+                    Console.WriteLine("Error user not found");
+                }
             }
             static void AddCategory()
             {
