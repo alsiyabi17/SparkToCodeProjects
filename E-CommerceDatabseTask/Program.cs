@@ -193,14 +193,100 @@ namespace E_CommerceDatabseTask
                     Console.WriteLine("Error: Invalid choice");
                 }
             }
-        }
             static void PlaceOrder()
             {
-                // TODO: implement - check loggedInUserId != 0 first
+            if (loggedInUserId != 0)
+            {
+                try
+                {
+                    Console.WriteLine("How many products you want to order: ");
+                    int proNum = int.Parse(Console.ReadLine());
+
+                    Order order = new Order
+                    {
+                        UserId = loggedInUserId,
+                        Date = DateTime.Now,
+                        OrderProducts = new List<OrderProduct>()
+                    };
+
+                    for (int i = 0; i < proNum; i++)
+                    {
+                        Console.WriteLine("Enter product name: ");
+                        string proName = Console.ReadLine();
+
+                        Product product = context.products.FirstOrDefault(p => p.ProductName == proName);
+
+                        if (product != null)
+                        {
+                            Console.WriteLine("Enter the quantity: ");
+                            int quantity = int.Parse(Console.ReadLine());
+
+                               OrderProducts item = new OrderProducts
+                                {
+                                ProductId = product.ProductId,
+                                Quantity = quantity
+                            };
+
+                            order.OrderProducts.Add(item);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: Product not found");
+                            return;
+                        }
+                    }
+
+                    context.orders.Add(order);
+                    context.SaveChanges();
+                    Console.WriteLine("Order placed successfully!");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: system only accepts integer numbers");
+                }
             }
+            else
+            {
+                Console.WriteLine("Error: User is not logged in");
+                return;
+            }
+        }
             static void ViewMyOrders()
             {
-                // TODO: implement - check loggedInUserId != 0 first
+                {
+                    if (loggedInUserId != 0)
+                    {
+                        var userOrders = context.orders
+                            .Include(o => o.OrderProduct)
+                            .ThenInclude(po => po.product)
+                            .Where(o => o.UserId == loggedInUserId)
+                            .ToList();
+
+                        if (userOrders.Count == 0)
+                        {
+                            Console.WriteLine("You have not placed any orders yet.");
+                            return;
+                        }
+
+                        foreach (var order in userOrders)
+                        {
+                            Console.WriteLine("=============================");
+                            Console.WriteLine($"Order ID: {order.OrderId}");
+                            Console.WriteLine($"Order Date: {order.OrderDate}");
+                            Console.WriteLine("Products:");
+
+                            foreach (var item in order.OrderProduct)
+                            {
+                                Console.WriteLine($"  - {item.product.ProductName} (Quantity: {item.Quantity})");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: User is not logged in");
+                        return;
+                    }
+                }
             }
             static void ViewOrderDetails()
             {
