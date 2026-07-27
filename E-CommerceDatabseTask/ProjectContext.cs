@@ -6,7 +6,7 @@ using System.Text;
 
 namespace E_CommerceDatabseTask
 {
-    public class ProjectContext
+    public class ProjectContext : DbContext
     {
         // Register Models
         public DbSet<Product> Products { get; set; }
@@ -19,7 +19,7 @@ namespace E_CommerceDatabseTask
         // 2- Configure database connection
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=Mohammed\\SQLEXPRESS;Database=CompanyProjectDb;Trusted_Connection=true;TrustServerCertificate=true;");
+            optionsBuilder.UseSqlServer("Server=Mohammed\\SQLEXPRESS;Database=E_CommerceDatabse;Trusted_Connection=true;TrustServerCertificate=true;");
         }
     }
 }

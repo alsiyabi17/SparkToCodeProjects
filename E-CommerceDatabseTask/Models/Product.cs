@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace E_CommerceDatabseTask.Models
 {
@@ -10,15 +7,19 @@ namespace E_CommerceDatabseTask.Models
     {
         [Key]
         public int ProductId { get; set; }
+
         public string ProductName { get; set; }
+
         public double Price { get; set; }
 
-        [ForeignKey("CID")]
+
+        // Category -> Product (1:N)
         public int CategoryId { get; set; }
-        public Category CID { get; set; }
 
-        public List<OrderProduct> OrderProducts { get; set; }
+        public Category Category { get; set; }
 
 
+        // Product -> OrderProduct (1:N)
+        public List<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
     }
 }

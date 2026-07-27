@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace E_CommerceDatabseTask.Models
 {
@@ -10,16 +9,19 @@ namespace E_CommerceDatabseTask.Models
     {
         [Key]
         public int OrderId { get; set; }
+
         public DateTime Date { get; set; }
 
+        // User -> Order (1:N)
         [ForeignKey("UID")]
         public int UserId { get; set; }
+
         public User UID { get; set; }
 
-        // M - M
-        public List<OrderProduct> OrderProducts { get; set; }
+        // Order -> OrderProduct (1:N)
+        public List<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
 
-        // 1 - M
+        // Order -> Review (1:1)
         public Review Review { get; set; }
     }
 }
