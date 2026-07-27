@@ -10,7 +10,7 @@ namespace E_CommerceDatabseTask
 
             // Shared DbContext - created ONCE, here, so every function below reuses
             // the exact same instance instead of each function opening its own.
-             static ProjectContext context = new ProjectContext();
+            static ProjectContext context = new ProjectContext();
 
             // Shared login state - 0 means "nobody is logged in".
             // Set by Login(), read by any function that requires a logged-in user,
@@ -103,7 +103,7 @@ namespace E_CommerceDatabseTask
                 if (user == null) {
                     loggedInUserId = user.UserId;
                     Console.WriteLine("Successfully Logged In");
-                 }
+                }
                 else
                 {
                     Console.WriteLine("Error user not found");
@@ -195,62 +195,62 @@ namespace E_CommerceDatabseTask
             }
             static void PlaceOrder()
             {
-            if (loggedInUserId != 0)
-            {
-                try
+                if (loggedInUserId != 0)
                 {
-                    Console.WriteLine("How many products you want to order: ");
-                    int proNum = int.Parse(Console.ReadLine());
-
-                    Order order = new Order
+                    try
                     {
-                        UserId = loggedInUserId,
-                        Date = DateTime.Now,
-                        OrderProducts = new List<OrderProduct>()
-                    };
+                        Console.WriteLine("How many products you want to order: ");
+                        int proNum = int.Parse(Console.ReadLine());
 
-                    for (int i = 0; i < proNum; i++)
-                    {
-                        Console.WriteLine("Enter product name: ");
-                        string proName = Console.ReadLine();
-
-                        Product product = context.products.FirstOrDefault(p => p.ProductName == proName);
-
-                        if (product != null)
+                        Order order = new Order
                         {
-                            Console.WriteLine("Enter the quantity: ");
-                            int quantity = int.Parse(Console.ReadLine());
+                            UserId = loggedInUserId,
+                            Date = DateTime.Now,
+                            OrderProducts = new List<OrderProduct>()
+                        };
 
-                               OrderProducts item = new OrderProducts
+                        for (int i = 0; i < proNum; i++)
+                        {
+                            Console.WriteLine("Enter product name: ");
+                            string proName = Console.ReadLine();
+
+                            Product product = context.products.FirstOrDefault(p => p.ProductName == proName);
+
+                            if (product != null)
+                            {
+                                Console.WriteLine("Enter the quantity: ");
+                                int quantity = int.Parse(Console.ReadLine());
+
+                                OrderProducts item = new OrderProducts
                                 {
-                                ProductId = product.ProductId,
-                                Quantity = quantity
-                            };
+                                    ProductId = product.ProductId,
+                                    Quantity = quantity
+                                };
 
-                            order.OrderProducts.Add(item);
+                                order.OrderProducts.Add(item);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Error: Product not found");
+                                return;
+                            }
                         }
-                        else
-                        {
-                            Console.WriteLine("Error: Product not found");
-                            return;
-                        }
+
+                        context.orders.Add(order);
+                        context.SaveChanges();
+                        Console.WriteLine("Order placed successfully!");
                     }
-
-                    context.orders.Add(order);
-                    context.SaveChanges();
-                    Console.WriteLine("Order placed successfully!");
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Error: system only accepts integer numbers");
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine("Error: system only accepts integer numbers");
+                    Console.WriteLine("Error: User is not logged in");
+                    return;
                 }
             }
-            else
-            {
-                Console.WriteLine("Error: User is not logged in");
-                return;
-            }
-        }
             static void ViewMyOrders()
             {
                 {
@@ -383,12 +383,65 @@ namespace E_CommerceDatabseTask
             }
 
             static void ViewReviewsForProduct()
-                // TODO: implement
+            {
+                Console.WriteLine("Enter product name: ");
+                string proName = Console.ReadLine();
+
+                Product product = context.products.FirstOrDefault(p => p.ProductName == proName);
+
+                if (product != null)
+                {
+                    var productOrders = context.orderedProducts
+                        .Include(po => po.order)
+                        .ThenInclude(o => o.Review)
+                        .Where(po => po.ProductId == product.ProductId)
+                        .ToList();
+
+                    if (productOrders.Count != 0)
+                    {
+                        foreach (var item in productOrders)
+                        {
+                            Console.WriteLine("=============================");
+                            Console.WriteLine($"Order ID: {item.OrderId}");
+
+                            if (item.order.Review != null)
+                            {
+                                Console.WriteLine($"Rating: {item.order.Review.Rating}");
+                                Console.WriteLine($"Comment: {item.order.Review.Comment}");
+                            }
+                            else
+                            {
+                                Console.WriteLine("No review for this order");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No orders found for this product");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: Product not found");
+                }
             }
-        static void Logout()
-        {
-            // TODO: implement - reset loggedInUserId back to 0
+
+            static void Logout()
+            {
+                {
+                    if (loggedInUserId != 0)
+                    {
+                        loggedInUserId = 0;
+                        Console.WriteLine("Successfully logged out");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Already logged out");
+                    }
+
+                }
+
+            }
         }
-    
     }
 }
