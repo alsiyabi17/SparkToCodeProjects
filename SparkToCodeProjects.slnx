@@ -11,6 +11,9 @@
     <File Path="DatabaseTasks/College mapping.png" />
     <File Path="DatabaseTasks/Company Database.drawio.png" />
     <File Path="DatabaseTasks/Company mapping.png" />
+    <File Path="E-CommerceDatabseTask/DatabaseDaigrams/E-CommerceDatabase.drawio.png" />
+    <File Path="E-CommerceDatabseTask/DatabaseDaigrams/E-CommerceDatabaseMapping.drawio.png" />
+    <File Path="E-CommerceDatabseTask/DatabaseDaigrams/E-CommerceDatabaseMapping.jpg" />
   </Folder>
   <Project Path="Csharp Functions/Csharp Functions.csproj" Id="cf444ece-8b42-40f6-afb7-f54d931f6857">
     <BuildType Solution="Default|*" Project="Release" />
@@ -32,6 +35,9 @@
     <BuildType Project="Default" />
     <Platform Project="?" />
     <Build Project="false" />
+  </Project>
+  <Project Path="E-CommerceDatabseTask/E-CommerceDatabseTask.csproj" Id="9805154a-30f7-4999-804e-72eac96a98a7">
+    <BuildType Solution="Default|*" Project="Release" />
   </Project>
   <Project Path="EFCoreProject/EFCoreProject.csproj" Id="b5149052-a9e8-4c88-8145-109ffcac66ab">
     <BuildType Solution="Default|*" Project="Release" />
