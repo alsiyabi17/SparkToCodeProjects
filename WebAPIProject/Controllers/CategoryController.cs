@@ -44,7 +44,7 @@ namespace WebAPIProject.Controllers
         }
 
         // get all Category
-        public List<Category> GetCategories()
+        public List<Category> GetAllCategories()
         {
             List<Category> categories = context.categories.ToList();
             return categories;

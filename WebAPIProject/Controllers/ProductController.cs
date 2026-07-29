@@ -36,6 +36,23 @@ namespace WebAPIProject.Controllers
             }
         }
 
+
+        // Update ProductPrice
+        public void UpdateProductPrice(int id,double newPrice)
+        {
+            Product p = context.products.FirstOrDefault(p => p.ProductId == id);
+            p.ProductPrice = newPrice;
+            context.SaveChanges();
+        }
+
+        // Update ProductName
+        public void UpdateProductName(int id, string newName)
+        {
+            Product p = context.products.FirstOrDefault(p => p.ProductId == id);
+            p.ProductName = newName;
+            context.SaveChanges();
+        }
+
         // get product by id
         public Product GetProduct(int Id) 
         {
@@ -44,10 +61,19 @@ namespace WebAPIProject.Controllers
         }
 
         // get all products
-        public List<Product> GetProducts() 
+        public List<Product> GetAllProducts() 
         {
             List<Product> products = context.products.ToList();
             return products;
         }
+
+        // Get byName
+        public List<Product> GetByName(string name)
+        {
+            List<Product> products = context.products.Where(p => p.ProductName.Contains(name)).ToList();
+            return products;
+        }
+
+
     }
 }
