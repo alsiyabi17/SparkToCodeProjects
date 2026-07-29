@@ -17,6 +17,7 @@ namespace WebAPIProject.Controllers
         //ProjectContext context = new ProjectContext();
 
         // Add Product
+        [HttpPost("AddProduct")]
         public void AddProduct(Product p)
         {
 
@@ -25,6 +26,7 @@ namespace WebAPIProject.Controllers
         }
 
         // delete product by id 
+        [HttpDelete("RemoveProduct")]
         public void RemoveProduct(int Id)
         {
 
@@ -39,8 +41,8 @@ namespace WebAPIProject.Controllers
             }
         }
 
-
         // Update ProductPrice
+        [HttpPatch("UpdateProductPrice")]
         public void UpdateProductPrice(int id,double newPrice)
         {
             Product p = context.products.FirstOrDefault(p => p.ProductId == id);
@@ -49,6 +51,7 @@ namespace WebAPIProject.Controllers
         }
 
         // Update ProductName
+        [HttpPatch("UpdateProductName")]
         public void UpdateProductName(int id, string newName)
         {
             Product p = context.products.FirstOrDefault(p => p.ProductId == id);
@@ -56,7 +59,22 @@ namespace WebAPIProject.Controllers
             context.SaveChanges();
         }
 
+        // Update All
+        [HttpPut("UpdateProduct")]
+        public void UpdateProduct(int id, Product newProduct)
+        {
+            Product p = context.products.FirstOrDefault(p => p.ProductId == id);
+
+            p.ProductPrice = newProduct.ProductPrice;
+            p.ProductName = newProduct.ProductName;
+            p.ProductDescription = newProduct.ProductDescription;
+
+            context.SaveChanges();
+        }
+
+
         // get product by id
+        [HttpGet("GetProduct")]
         public Product GetProduct(int Id) 
         {
             Product p = context.products.FirstOrDefault(p => p.ProductId == Id);
@@ -64,6 +82,7 @@ namespace WebAPIProject.Controllers
         }
 
         // get all products
+        [HttpGet("GetAllProducts")]
         public List<Product> GetAllProducts() 
         {
             List<Product> products = context.products.ToList();
@@ -71,6 +90,7 @@ namespace WebAPIProject.Controllers
         }
 
         // Get byName
+        [HttpGet("GetByName")]
         public List<Product> GetByName(string name)
         {
             List<Product> products = context.products.Where(p => p.ProductName.Contains(name)).ToList();
