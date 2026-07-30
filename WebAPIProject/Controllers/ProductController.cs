@@ -18,50 +18,56 @@ namespace WebAPIProject.Controllers
 
         // Add Product
         [HttpPost("AddProduct")]
-        public void AddProduct(Product p)
+        public IActionResult AddProduct(Product p)
         {
 
             context.products.Add(p);
             context.SaveChanges();
+
+            return Ok(p.ProductId); 
         }
 
         // delete product by id 
         [HttpDelete("RemoveProduct")]
-        public void RemoveProduct(int Id)
+        public IActionResult RemoveProduct(int Id)
         {
 
             Product p = context.products.FirstOrDefault(p => p.ProductId == Id);
             if (p == null) 
             {
+                return NotFound("Product Not Found");
             }
             else
             {
                 context.products.Remove(p);
                 context.SaveChanges();
+                return Ok("removed successfully");
             }
         }
 
         // Update ProductPrice
         [HttpPatch("UpdateProductPrice")]
-        public void UpdateProductPrice(int id,double newPrice)
+        public IActionResult UpdateProductPrice(int id,double newPrice)
         {
             Product p = context.products.FirstOrDefault(p => p.ProductId == id);
             p.ProductPrice = newPrice;
             context.SaveChanges();
+            return Ok();
         }
 
         // Update ProductName
         [HttpPatch("UpdateProductName")]
-        public void UpdateProductName(int id, string newName)
+        public IActionResult UpdateProductName(int id, string newName)
         {
             Product p = context.products.FirstOrDefault(p => p.ProductId == id);
             p.ProductName = newName;
             context.SaveChanges();
+            return Ok();
         }
 
         // Update All
         [HttpPut("UpdateProduct")]
-        public void UpdateProduct(int id, Product newProduct)
+        public IActionResult UpdateProduct(int id, Product newProduct)
         {
             Product p = context.products.FirstOrDefault(p => p.ProductId == id);
 
@@ -70,31 +76,31 @@ namespace WebAPIProject.Controllers
             p.ProductDescription = newProduct.ProductDescription;
 
             context.SaveChanges();
+            return Ok();
         }
-
 
         // get product by id
         [HttpGet("GetProduct")]
-        public Product GetProduct(int Id) 
+        public IActionResult GetProduct(int Id) 
         {
             Product p = context.products.FirstOrDefault(p => p.ProductId == Id);
-            return p;
+            return Ok(p);
         }
 
         // get all products
         [HttpGet("GetAllProducts")]
-        public List<Product> GetAllProducts() 
+        public IActionResult GetAllProducts() 
         {
             List<Product> products = context.products.ToList();
-            return products;
+            return Ok("products");
         }
 
         // Get byName
         [HttpGet("GetByName")]
-        public List<Product> GetByName(string name)
+        public IActionResult GetByName(string name)
         {
             List<Product> products = context.products.Where(p => p.ProductName.Contains(name)).ToList();
-            return products;
+            return Ok("products");
         }
 
 
