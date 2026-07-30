@@ -21,6 +21,6 @@ namespace WebAPIProject.Models
         public int CategoryId { get; set; }
 
         [JsonIgnore]
-        public Category category { get; set; }
+        public Category? category { get; set; }
     }
 }
