@@ -17,6 +17,7 @@ namespace WebAPIProject.Models
         public double ProductPrice { get; set; }
 
         [ForeignKey("category")]
+        [Required]
         public int CategoryId { get; set; }
 
         [JsonIgnore]

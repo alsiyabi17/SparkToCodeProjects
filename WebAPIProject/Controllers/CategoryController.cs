@@ -17,44 +17,47 @@ namespace WebAPIProject.Controllers
 
         // Add Category
         [HttpPost("AddCategory")]
-        public void AddCategory(Category c)
+        public IActionResult AddCategory(Category c)
         {
 
             context.categories.Add(c);
             context.SaveChanges();
+            return Ok();
         }
 
         // Delete Category
         [HttpDelete("RemoveCategoryt")]
-        public void RemoveCategoryt(int Id)
+        public IActionResult RemoveCategoryt(int Id)
         {
 
             Category c = context.categories.FirstOrDefault(c => c.CategoryId == Id);
             if (c == null)
             {
+                return NotFound();
             }
             else
             {
                 context.categories.Remove(c);
                 context.SaveChanges();
+                return Ok();
             }
         }
 
 
         // get Category by id
         [HttpGet("GetCategory")]
-        public Category GetCategory(int Id)
+        public IActionResult GetCategory(int Id)
         {
             Category c = context.categories.FirstOrDefault(c => c.CategoryId == Id);
-            return c;
+            return Ok("c");
         }
 
         // get all Category
         [HttpGet("GetAllCategories")]
-        public List<Category> GetAllCategories()
+        public IActionResult GetAllCategories()
         {
             List<Category> categories = context.categories.ToList();
-            return categories;
+            return Ok("categories");
         }
     }
 }
