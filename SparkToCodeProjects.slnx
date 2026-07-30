@@ -82,4 +82,7 @@
     <BuildType Solution="Default|*" Project="Release" />
     <Build Solution="Default|*" Project="false" />
   </Project>
+  <Project Path="WebAPIProject/WebAPIProject.csproj" Id="d9e001f9-c513-4235-8ce1-fc29a537da76">
+    <BuildType Solution="Default|*" Project="Release" />
+  </Project>
 </Solution>
